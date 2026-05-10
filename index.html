@@ -16,7 +16,7 @@ html { scroll-behavior: smooth; }
 body {
 background-color: #050505;
 color: #F5F1EA;
-font-family: ‘Outfit’, ‘Helvetica Neue’, Arial, sans-serif;
+font-family: 'Outfit', 'Helvetica Neue', Arial, sans-serif;
 font-weight: 300;
 overflow-x: hidden;
 -webkit-font-smoothing: antialiased;
@@ -41,17 +41,12 @@ transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bez
 
 /* Sutil textura japonesa */
 body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0 L60 30 L30 60 L0 30Z' fill='none' stroke='%23ffffff' stroke-width='0.3' opacity='0.02'/%3E%3C/svg%3E");
-
-  pointer-events: none;
-  z-index: 0;
+content: '';
+position: fixed;
+top: 0; left: 0; right: 0; bottom: 0;
+background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0 L60 30 L30 60 L0 30Z' fill='none' stroke='%23ffffff' stroke-width='0.3' opacity='0.02'/%3E%3C/svg%3E");
+pointer-events: none;
+z-index: 0;
 }
 
 /* Partículas */
@@ -102,7 +97,7 @@ margin: 0 auto;
 padding: 0 24px;
 }
 .nav-logo {
-font-family: ‘Cormorant Garamond’, Georgia, serif;
+font-family: 'Cormorant Garamond', Georgia, serif;
 font-size: 1.3rem;
 font-weight: 400;
 letter-spacing: 0.15em;
@@ -111,7 +106,7 @@ text-transform: uppercase;
 }
 .nav-logo span { color: #C1121F; }
 .nav-cta {
-font-family: ‘Outfit’, sans-serif;
+font-family: 'Outfit', sans-serif;
 font-size: 0.75rem;
 font-weight: 400;
 letter-spacing: 0.2em;
@@ -146,7 +141,7 @@ top: 0; left: 0; right: 0; bottom: 0;
 background-color: #080808;
 background-image:
 linear-gradient(180deg, rgba(5,5,5,0.3) 0%, rgba(5,5,5,0.6) 40%, rgba(5,5,5,0.85) 100%),
-url(‘https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=1600&q=80’);
+url('https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=1600&q=80');
 background-size: cover;
 background-position: center;
 background-repeat: no-repeat;
@@ -158,7 +153,7 @@ animation: heroZoom 20s ease-in-out infinite alternate;
 100% { transform: scale(1.12); }
 }
 .hero-bg::after {
-content: ‘’;
+content: '';
 position: absolute;
 top: 0; left: 0; right: 0; bottom: 0;
 background: radial-gradient(ellipse at center bottom, rgba(193,18,31,0.12) 0%, transparent 60%);
@@ -169,7 +164,7 @@ z-index: 2;
 padding: 0 24px;
 }
 .hero-kanji {
-font-family: ‘Noto Serif JP’, serif;
+font-family: 'Noto Serif JP', serif;
 font-size: clamp(0.9rem, 1.5vw, 1.1rem);
 font-weight: 200;
 letter-spacing: 0.8em;
@@ -179,7 +174,7 @@ opacity: 0;
 animation: fadeSlideDown 1s 0.3s ease forwards;
 }
 .hero-title {
-font-family: ‘Cormorant Garamond’, Georgia, serif;
+font-family: 'Cormorant Garamond', Georgia, serif;
 font-size: clamp(3.5rem, 9vw, 7rem);
 font-weight: 300;
 line-height: 1;
@@ -190,7 +185,7 @@ opacity: 0;
 animation: fadeSlideDown 1s 0.6s ease forwards;
 }
 .hero-subtitle {
-font-family: ‘Cormorant Garamond’, Georgia, serif;
+font-family: 'Cormorant Garamond', Georgia, serif;
 font-size: clamp(1.1rem, 2.5vw, 1.6rem);
 font-weight: 300;
 font-style: italic;
@@ -201,7 +196,7 @@ opacity: 0;
 animation: fadeSlideDown 1s 0.9s ease forwards;
 }
 .hero-text {
-font-family: ‘Outfit’, sans-serif;
+font-family: 'Outfit', sans-serif;
 font-size: clamp(0.85rem, 1.3vw, 1rem);
 font-weight: 200;
 line-height: 1.8;
@@ -224,7 +219,7 @@ animation: fadeSlideDown 1s 1.5s ease forwards;
 display: inline-flex;
 align-items: center;
 gap: 10px;
-font-family: ‘Outfit’, sans-serif;
+font-family: 'Outfit', sans-serif;
 font-size: 0.8rem;
 font-weight: 400;
 letter-spacing: 0.25em;
@@ -240,7 +235,7 @@ overflow: hidden;
 transition: all 0.4s ease;
 }
 .btn-primary::before {
-content: ‘’;
+content: '';
 position: absolute;
 top: 0; left: 0; right: 0; bottom: 0;
 background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%);
@@ -255,7 +250,7 @@ box-shadow: 0 8px 40px rgba(193,18,31,0.4);
 .btn-primary:hover::before { opacity: 1; }
 
 .btn-secondary {
-font-family: ‘Outfit’, sans-serif;
+font-family: 'Outfit', sans-serif;
 font-size: 0.8rem;
 font-weight: 300;
 letter-spacing: 0.25em;
@@ -276,7 +271,7 @@ opacity: 0;
 animation: fadeSlideDown 1s 1.8s ease forwards;
 }
 .hero-availability span {
-font-family: ‘Outfit’, sans-serif;
+font-family: 'Outfit', sans-serif;
 font-size: 0.7rem;
 font-weight: 300;
 letter-spacing: 0.3em;
@@ -314,7 +309,7 @@ to { opacity: 1; transform: translateY(0); }
 
 /* ═══════════════ DIVIDER ═══════════════ */
 .section-divider { text-align: center; padding: 20px 0; }
-.section-divider::before { content: ‘◆’; font-size: 8px; color: #C9A96E; letter-spacing: 1.5em; }
+.section-divider::before { content: '◆'; font-size: 8px; color: #C9A96E; letter-spacing: 1.5em; }
 
 /* ═══════════════ EXPERIENCE ═══════════════ */
 .experience {
@@ -323,7 +318,7 @@ padding: 120px 0;
 background: linear-gradient(180deg, #050505 0%, #1A1A1A 50%, #050505 100%);
 }
 .experience::before {
-content: ‘’;
+content: '';
 position: absolute;
 top: 0; left: 50%;
 transform: translateX(-50%);
@@ -332,7 +327,7 @@ background: linear-gradient(to bottom, transparent, #C9A96E, transparent);
 }
 .exp-header { text-align: center; margin-bottom: 80px; }
 .exp-label {
-font-family: ‘Outfit’, sans-serif;
+font-family: 'Outfit', sans-serif;
 font-size: 0.7rem;
 font-weight: 300;
 letter-spacing: 0.5em;
@@ -341,7 +336,7 @@ color: #C9A96E;
 margin-bottom: 24px;
 }
 .exp-title {
-font-family: ‘Cormorant Garamond’, Georgia, serif;
+font-family: 'Cormorant Garamond', Georgia, serif;
 font-size: clamp(2rem, 4vw, 3rem);
 font-weight: 300;
 line-height: 1.3;
@@ -350,7 +345,7 @@ max-width: 700px;
 margin: 0 auto 28px;
 }
 .exp-desc {
-font-family: ‘Outfit’, sans-serif;
+font-family: 'Outfit', sans-serif;
 font-size: 0.95rem;
 font-weight: 200;
 line-height: 1.9;
@@ -369,7 +364,7 @@ transition: all 0.5s ease;
 position: relative;
 }
 .exp-card::before {
-content: ‘’;
+content: '';
 position: absolute;
 top: 0; left: 50%;
 transform: translateX(-50%) scaleX(0);
@@ -388,7 +383,7 @@ color: #C9A96E;
 opacity: 0.7;
 }
 .exp-card-title {
-font-family: ‘Cormorant Garamond’, Georgia, serif;
+font-family: 'Cormorant Garamond', Georgia, serif;
 font-size: 1.05rem;
 font-weight: 400;
 letter-spacing: 0.08em;
@@ -396,7 +391,7 @@ color: #F5F1EA;
 margin-bottom: 8px;
 }
 .exp-card-sub {
-font-family: ‘Outfit’, sans-serif;
+font-family: 'Outfit', sans-serif;
 font-size: 0.75rem;
 font-weight: 200;
 letter-spacing: 0.1em;
@@ -407,13 +402,13 @@ color: rgba(245,241,234,0.4);
 .menu-section { position: relative; padding: 120px 0; background-color: #050505; }
 .menu-header { text-align: center; margin-bottom: 60px; }
 .menu-label {
-font-family: ‘Outfit’, sans-serif;
+font-family: 'Outfit', sans-serif;
 font-size: 0.7rem; font-weight: 300;
 letter-spacing: 0.5em; text-transform: uppercase;
 color: #C9A96E; margin-bottom: 24px;
 }
 .menu-title {
-font-family: ‘Cormorant Garamond’, Georgia, serif;
+font-family: 'Cormorant Garamond', Georgia, serif;
 font-size: clamp(2rem, 4vw, 3rem);
 font-weight: 300; color: #F5F1EA;
 }
@@ -440,11 +435,11 @@ padding: 24px; transition: all 0.5s ease;
 background: linear-gradient(to top, rgba(5,5,5,0.95) 0%, rgba(193,18,31,0.1) 100%);
 }
 .menu-item-title {
-font-family: ‘Cormorant Garamond’, Georgia, serif;
+font-family: 'Cormorant Garamond', Georgia, serif;
 font-size: 1.2rem; font-weight: 400; color: #F5F1EA; margin-bottom: 4px;
 }
 .menu-item-sub {
-font-family: ‘Outfit’, sans-serif;
+font-family: 'Outfit', sans-serif;
 font-size: 0.7rem; font-weight: 200;
 letter-spacing: 0.15em; text-transform: uppercase; color: #C9A96E;
 }
@@ -462,7 +457,7 @@ padding: clamp(40px, 6vw, 72px);
 text-align: center; position: relative; overflow: hidden;
 }
 .combo-card::before, .combo-card::after {
-content: ‘’; position: absolute;
+content: ''; position: absolute;
 width: 120px; height: 120px;
 border: 1px solid rgba(201,169,110,0.1);
 pointer-events: none;
@@ -471,24 +466,24 @@ pointer-events: none;
 .combo-card::after { bottom: 16px; right: 16px; border-left: none; border-top: none; }
 
 .combo-label {
-font-family: ‘Outfit’, sans-serif;
+font-family: 'Outfit', sans-serif;
 font-size: 0.7rem; font-weight: 300;
 letter-spacing: 0.5em; text-transform: uppercase;
 color: #C9A96E; margin-bottom: 20px;
 }
 .combo-title {
-font-family: ‘Cormorant Garamond’, Georgia, serif;
+font-family: 'Cormorant Garamond', Georgia, serif;
 font-size: clamp(2rem, 4vw, 2.8rem);
 font-weight: 400; color: #F5F1EA; margin-bottom: 8px;
 }
 .combo-price {
-font-family: ‘Cormorant Garamond’, Georgia, serif;
+font-family: 'Cormorant Garamond', Georgia, serif;
 font-size: clamp(2.2rem, 5vw, 3.2rem);
 font-weight: 300; color: #C9A96E; margin-bottom: 40px;
 }
 .combo-list { list-style: none; text-align: left; max-width: 420px; margin: 0 auto 40px; }
 .combo-list li {
-font-family: ‘Outfit’, sans-serif;
+font-family: 'Outfit', sans-serif;
 font-size: 0.9rem; font-weight: 300;
 color: rgba(245,241,234,0.85);
 padding: 12px 0;
@@ -496,18 +491,18 @@ border-bottom: 1px solid rgba(255,255,255,0.05);
 display: flex; align-items: center; gap: 14px;
 }
 .combo-list li::before {
-content: ‘’; width: 6px; height: 6px;
+content: ''; width: 6px; height: 6px;
 background: #C9A96E; border-radius: 50%; flex-shrink: 0;
 }
 .combo-note {
-font-family: ‘Outfit’, sans-serif;
+font-family: 'Outfit', sans-serif;
 font-size: 0.75rem; font-weight: 200;
 color: rgba(245,241,234,0.4);
 margin-bottom: 40px; font-style: italic;
 }
 .combo-btn {
 display: inline-flex; align-items: center; gap: 10px;
-font-family: ‘Outfit’, sans-serif;
+font-family: 'Outfit', sans-serif;
 font-size: 0.8rem; font-weight: 400;
 letter-spacing: 0.25em; text-transform: uppercase;
 color: #050505;
@@ -521,17 +516,17 @@ transition: all 0.4s ease;
 /* ═══════════════ SCARCITY ═══════════════ */
 .scarcity { padding: 100px 0; text-align: center; background-color: #050505; }
 .scarcity-number {
-font-family: ‘Cormorant Garamond’, Georgia, serif;
+font-family: 'Cormorant Garamond', Georgia, serif;
 font-size: clamp(4rem, 10vw, 8rem);
 font-weight: 300; color: #C1121F; line-height: 1; margin-bottom: 12px;
 }
 .scarcity-text {
-font-family: ‘Cormorant Garamond’, Georgia, serif;
+font-family: 'Cormorant Garamond', Georgia, serif;
 font-size: clamp(1.2rem, 2.5vw, 1.8rem);
 font-weight: 300; color: #F5F1EA; margin-bottom: 24px; letter-spacing: 0.05em;
 }
 .scarcity-sub {
-font-family: ‘Outfit’, sans-serif;
+font-family: 'Outfit', sans-serif;
 font-size: 0.85rem; font-weight: 200;
 color: rgba(245,241,234,0.4); margin-bottom: 48px;
 }
@@ -545,7 +540,7 @@ transition: width 2s cubic-bezier(0.16, 1, 0.3, 1);
 .bar-fill.animated { width: 72%; }
 .bar-labels { display: flex; justify-content: space-between; margin-top: 12px; }
 .bar-labels span {
-font-family: ‘Outfit’, sans-serif;
+font-family: 'Outfit', sans-serif;
 font-size: 0.65rem; font-weight: 300;
 letter-spacing: 0.15em; text-transform: uppercase;
 color: rgba(245,241,234,0.35);
@@ -555,23 +550,23 @@ color: rgba(245,241,234,0.35);
 .location-section { padding: 120px 0; background: linear-gradient(180deg, #050505, #1A1A1A); }
 .location-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
 .location-label {
-font-family: ‘Outfit’, sans-serif;
+font-family: 'Outfit', sans-serif;
 font-size: 0.7rem; font-weight: 300;
 letter-spacing: 0.5em; text-transform: uppercase;
 color: #C9A96E; margin-bottom: 24px;
 }
 .location-name {
-font-family: ‘Cormorant Garamond’, Georgia, serif;
+font-family: 'Cormorant Garamond', Georgia, serif;
 font-size: clamp(1.8rem, 3vw, 2.4rem);
 font-weight: 400; color: #F5F1EA; margin-bottom: 16px;
 }
 .location-address {
-font-family: ‘Outfit’, sans-serif;
+font-family: 'Outfit', sans-serif;
 font-size: 0.9rem; font-weight: 200; line-height: 1.8;
 color: rgba(245,241,234,0.5); margin-bottom: 8px;
 }
 .location-date {
-font-family: ‘Outfit’, sans-serif;
+font-family: 'Outfit', sans-serif;
 font-size: 0.85rem; font-weight: 300;
 color: #C9A96E; margin-top: 20px; letter-spacing: 0.1em;
 }
@@ -594,24 +589,24 @@ position: relative; padding: 160px 0;
 text-align: center; background-color: #050505; overflow: hidden;
 }
 .cta-final::before {
-content: ‘’; position: absolute;
+content: ''; position: absolute;
 top: 0; left: 0; right: 0; bottom: 0;
 background: radial-gradient(ellipse at center, rgba(193,18,31,0.08) 0%, transparent 70%);
 }
 .cta-jp {
-font-family: ‘Noto Serif JP’, serif;
+font-family: 'Noto Serif JP', serif;
 font-size: 1rem; font-weight: 200;
 letter-spacing: 0.5em; color: rgba(201,169,110,0.3); margin-bottom: 32px;
 }
 .cta-text {
-font-family: ‘Cormorant Garamond’, Georgia, serif;
+font-family: 'Cormorant Garamond', Georgia, serif;
 font-size: clamp(1.8rem, 4vw, 3rem);
 font-weight: 300; font-style: italic; color: #F5F1EA;
 max-width: 650px; margin: 0 auto 48px; line-height: 1.4;
 }
 .cta-btn {
 display: inline-flex; align-items: center; gap: 12px;
-font-family: ‘Outfit’, sans-serif;
+font-family: 'Outfit', sans-serif;
 font-size: 0.85rem; font-weight: 400;
 letter-spacing: 0.3em; text-transform: uppercase;
 color: #F5F1EA; background: #C1121F;
@@ -634,7 +629,7 @@ border-top: 1px solid rgba(255,255,255,0.04);
 background-color: #050505;
 }
 .footer p {
-font-family: ‘Outfit’, sans-serif;
+font-family: 'Outfit', sans-serif;
 font-size: 0.7rem; font-weight: 200;
 letter-spacing: 0.15em; color: rgba(245,241,234,0.25);
 }
@@ -670,7 +665,7 @@ width: 100%; max-width: 320px; justify-content: center;
 <nav class="nav" id="nav">
   <div class="nav-inner">
     <div class="nav-logo">Kitsune <span>Banzai</span></div>
-    <a href="https://wa.me/5548988331595" target="_blank" class="nav-cta">Reservar</a>
+    <a href="https://wa.me/5548988331595?text=Ol%C3%A1%2C%20quero%20reservar%20uma%20mesa%20para%20a%20Noite%20Fusion%20dos%20Namorados." target="_blank" rel="noopener" class="nav-cta">Reservar</a>
   </div>
 </nav>
 
@@ -684,7 +679,7 @@ width: 100%; max-width: 320px; justify-content: center;
     <p class="hero-subtitle">Noite Fusion dos Namorados</p>
     <p class="hero-text">Uma experiência gastronômica exclusiva para celebrar o amor através da culinária oriental fusion.</p>
     <div class="hero-buttons">
-      <a href="https://wa.me/5548988331595" target="_blank" class="btn-primary">
+      <a href="https://wa.me/5548988331595?text=Ol%C3%A1%2C%20quero%20reservar%20uma%20mesa%20para%20a%20Noite%20Fusion%20dos%20Namorados." target="_blank" rel="noopener" class="btn-primary">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
         Reservar Mesa
       </a>
@@ -710,7 +705,6 @@ width: 100%; max-width: 320px; justify-content: center;
     </div>
     <div class="exp-grid">
 
-```
   <!-- 1. Buffet -->
   <div class="exp-card reveal reveal-delay-1">
     <span class="exp-icon">
@@ -781,7 +775,6 @@ width: 100%; max-width: 320px; justify-content: center;
   </div>
 
 </div>
-```
 
   </div>
 </section>
@@ -844,7 +837,7 @@ width: 100%; max-width: 320px; justify-content: center;
         <li>Bombom Premium</li>
       </ul>
       <p class="combo-note">Reserva confirmada mediante pagamento antecipado de 50% via PIX.</p>
-      <a href="https://wa.me/5548988331595" target="_blank" class="combo-btn">
+      <a href="https://wa.me/5548988331595?text=Ol%C3%A1%2C%20quero%20reservar%20uma%20mesa%20para%20a%20Noite%20Fusion%20dos%20Namorados." target="_blank" rel="noopener" class="combo-btn">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
         Garantir Reserva
       </a>
@@ -907,7 +900,7 @@ width: 100%; max-width: 320px; justify-content: center;
     <div class="reveal">
       <p class="cta-jp">愛 · 美 · 味</p>
       <h2 class="cta-text">Uma noite para viver memórias inesquecíveis.</h2>
-      <a href="https://wa.me/5548988331595" target="_blank" class="cta-btn">
+      <a href="https://wa.me/5548988331595?text=Ol%C3%A1%2C%20quero%20reservar%20uma%20mesa%20para%20a%20Noite%20Fusion%20dos%20Namorados." target="_blank" rel="noopener" class="cta-btn">
         Reservar Agora
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
@@ -942,18 +935,27 @@ window.addEventListener('scroll', function() {
 });
 
 // Scroll reveal
-var observer = new IntersectionObserver(function(entries) {
-  entries.forEach(function(e) {
-    if (e.isIntersecting) e.target.classList.add('visible');
-  });
-}, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
+var revealElements = document.querySelectorAll('.reveal');
+if ('IntersectionObserver' in window) {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  revealElements.forEach(function(el) { observer.observe(el); });
+} else {
+  revealElements.forEach(function(el) { el.classList.add('visible'); });
+}
 
 // Barra de disponibilidade
 var barFill = document.getElementById('barFill');
-new IntersectionObserver(function(entries) {
-  entries.forEach(function(e) { if (e.isIntersecting) barFill.classList.add('animated'); });
-}, { threshold: 0.5 }).observe(barFill);
+if (barFill && 'IntersectionObserver' in window) {
+  new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if (e.isIntersecting) barFill.classList.add('animated'); });
+  }, { threshold: 0.5 }).observe(barFill);
+} else if (barFill) {
+  barFill.classList.add('animated');
+}
 
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(function(a) {
