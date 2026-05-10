@@ -4,33 +4,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kitsune Banzai – Noite Fusion dos Namorados</title>
+<title>Kitsune Banzai - Noite Fusion dos Namorados</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Outfit:wght@200;300;400;500;600&family=Noto+Serif+JP:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-–black: #050505;
-–red: #C1121F;
-–red-deep: #8B0000;
-–offwhite: #F5F1EA;
-–gold: #C9A96E;
-–gold-light: #D4B97A;
-–charcoal: #1A1A1A;
-–charcoal-mid: #2A2A2A;
-–gray: #888;
-–font-display: ‘Cormorant Garamond’, serif;
-–font-body: ‘Outfit’, sans-serif;
-–font-jp: ‘Noto Serif JP’, serif;
+-black: #050505;
+-red: #C1121F;
+-red-deep: #8B0000;
+-offwhite: #F5F1EA;
+-gold: #C9A96E;
+-gold-light: #D4B97A;
+-charcoal: #1A1A1A;
+-charcoal-mid: #2A2A2A;
+-gray: #888;
+-font-body: 'Outfit', sans-serif;
+-font-jp: 'Noto Serif JP', serif;
 }
 
 html { scroll-behavior: smooth; }
 
 body {
-background: var(–black);
-color: var(–offwhite);
-font-family: var(–font-body);
+background: var(-black);
+color: var(-offwhite);
+font-family: var(-font-body);
 font-weight: 300;
 overflow-x: hidden;
 -webkit-font-smoothing: antialiased;
@@ -38,8 +37,8 @@ overflow-x: hidden;
 
 /* ─── Scrollbar ─── */
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(–black); }
-::-webkit-scrollbar-thumb { background: var(–red); border-radius: 3px; }
+::-webkit-scrollbar-track { background: var(-black); }
+::-webkit-scrollbar-thumb { background: var(-red); border-radius: 3px; }
 
 /* ─── Utility ─── */
 .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
@@ -52,14 +51,6 @@ overflow-x: hidden;
 .reveal-delay-5 { transition-delay: 0.75s; }
 
 /* ─── Japanese texture overlay ─── */
-body::before {
-content: ‘’;
-position: fixed;
-inset: 0;
-background-image: url(“data:image/svg+xml,%3Csvg width=‘60’ height=‘60’ xmlns=‘http://www.w3.org/2000/svg’%3E%3Cpath d=‘M30 0 L60 30 L30 60 L0 30Z’ fill=‘none’ stroke=’%23ffffff’ stroke-width=‘0.3’ opacity=‘0.02’/%3E%3C/svg%3E”);
-pointer-events: none;
-z-index: 0;
-}
 
 /* ─── Floating particles ─── */
 .particles {
@@ -73,7 +64,7 @@ overflow: hidden;
 position: absolute;
 width: 2px;
 height: 2px;
-background: var(–gold);
+background: var(-gold);
 border-radius: 50%;
 opacity: 0;
 animation: floatUp linear infinite;
@@ -111,31 +102,31 @@ margin: 0 auto;
 padding: 0 24px;
 }
 .nav-logo {
-font-family: var(–font-display);
+font-family: var(-font-display);
 font-size: 1.3rem;
 font-weight: 400;
 letter-spacing: 0.15em;
-color: var(–offwhite);
+color: var(-offwhite);
 text-transform: uppercase;
 }
-.nav-logo span { color: var(–red); }
+.nav-logo span { color: var(-red); }
 .nav-cta {
-font-family: var(–font-body);
+font-family: var(-font-body);
 font-size: 0.75rem;
 font-weight: 400;
 letter-spacing: 0.2em;
 text-transform: uppercase;
-color: var(–offwhite);
+color: var(-offwhite);
 background: transparent;
-border: 1px solid var(–gold);
+border: 1px solid var(-gold);
 padding: 10px 24px;
 cursor: pointer;
 text-decoration: none;
 transition: all 0.4s ease;
 }
 .nav-cta:hover {
-background: var(–gold);
-color: var(–black);
+background: var(-gold);
+color: var(-black);
 }
 
 /* ─── HERO ─── */
@@ -173,39 +164,39 @@ z-index: 2;
 padding: 0 24px;
 }
 .hero-kanji {
-font-family: var(–font-jp);
+font-family: var(-font-jp);
 font-size: clamp(0.9rem, 1.5vw, 1.1rem);
 font-weight: 200;
 letter-spacing: 0.8em;
-color: var(–gold);
+color: var(-gold);
 margin-bottom: 28px;
 opacity: 0;
 animation: fadeSlideDown 1s 0.3s ease forwards;
 }
 .hero-title {
-font-family: var(–font-display);
+font-family: var(-font-display);
 font-size: clamp(3.5rem, 9vw, 7rem);
 font-weight: 300;
 line-height: 1;
 letter-spacing: 0.04em;
-color: var(–offwhite);
+color: var(-offwhite);
 margin-bottom: 8px;
 opacity: 0;
 animation: fadeSlideDown 1s 0.6s ease forwards;
 }
 .hero-subtitle {
-font-family: var(–font-display);
+font-family: var(-font-display);
 font-size: clamp(1.1rem, 2.5vw, 1.6rem);
 font-weight: 300;
 font-style: italic;
 letter-spacing: 0.15em;
-color: var(–gold);
+color: var(-gold);
 margin-bottom: 32px;
 opacity: 0;
 animation: fadeSlideDown 1s 0.9s ease forwards;
 }
 .hero-text {
-font-family: var(–font-body);
+font-family: var(-font-body);
 font-size: clamp(0.85rem, 1.3vw, 1rem);
 font-weight: 200;
 line-height: 1.8;
@@ -227,13 +218,13 @@ animation: fadeSlideDown 1s 1.5s ease forwards;
 display: inline-flex;
 align-items: center;
 gap: 10px;
-font-family: var(–font-body);
+font-family: var(-font-body);
 font-size: 0.8rem;
 font-weight: 400;
 letter-spacing: 0.25em;
 text-transform: uppercase;
-color: var(–offwhite);
-background: var(–red);
+color: var(-offwhite);
+background: var(-red);
 border: none;
 padding: 18px 42px;
 cursor: pointer;
@@ -253,12 +244,12 @@ transition: opacity 0.4s ease;
 .btn-primary:hover { background: #D41425; transform: translateY(-2px); box-shadow: 0 8px 40px rgba(193,18,31,0.4); }
 .btn-primary:hover::before { opacity: 1; }
 .btn-secondary {
-font-family: var(–font-body);
+font-family: var(-font-body);
 font-size: 0.8rem;
 font-weight: 300;
 letter-spacing: 0.25em;
 text-transform: uppercase;
-color: var(–offwhite);
+color: var(-offwhite);
 background: transparent;
 border: 1px solid rgba(245,241,234,0.25);
 padding: 18px 42px;
@@ -266,19 +257,19 @@ cursor: pointer;
 text-decoration: none;
 transition: all 0.4s ease;
 }
-.btn-secondary:hover { border-color: var(–gold); color: var(–gold); }
+.btn-secondary:hover { border-color: var(-gold); color: var(-gold); }
 .hero-availability {
 margin-top: 48px;
 opacity: 0;
 animation: fadeSlideDown 1s 1.8s ease forwards;
 }
 .hero-availability span {
-font-family: var(–font-body);
+font-family: var(-font-body);
 font-size: 0.7rem;
 font-weight: 300;
 letter-spacing: 0.3em;
 text-transform: uppercase;
-color: var(–gold);
+color: var(-gold);
 padding: 8px 20px;
 border: 1px solid rgba(201,169,110,0.3);
 }
@@ -294,7 +285,7 @@ animation: fadeSlideDown 1s 2.2s ease forwards;
 .scroll-line {
 width: 1px;
 height: 60px;
-background: linear-gradient(to bottom, var(–gold), transparent);
+background: linear-gradient(to bottom, var(-gold), transparent);
 margin: 0 auto;
 animation: scrollPulse 2s ease-in-out infinite;
 }
@@ -316,7 +307,7 @@ position: relative;
 .section-divider::before {
 content: ‘◆’;
 font-size: 8px;
-color: var(–gold);
+color: var(-gold);
 letter-spacing: 1.5em;
 }
 
@@ -324,7 +315,7 @@ letter-spacing: 1.5em;
 .experience {
 position: relative;
 padding: 120px 0;
-background: linear-gradient(180deg, var(–black) 0%, var(–charcoal) 50%, var(–black) 100%);
+background: linear-gradient(180deg, var(-black) 0%, var(-charcoal) 50%, var(-black) 100%);
 }
 .experience::before {
 content: ‘’;
@@ -334,32 +325,32 @@ left: 50%;
 transform: translateX(-50%);
 width: 1px;
 height: 80px;
-background: linear-gradient(to bottom, transparent, var(–gold), transparent);
+background: linear-gradient(to bottom, transparent, var(-gold), transparent);
 }
 .exp-header {
 text-align: center;
 margin-bottom: 80px;
 }
 .exp-label {
-font-family: var(–font-body);
+font-family: var(-font-body);
 font-size: 0.7rem;
 font-weight: 300;
 letter-spacing: 0.5em;
 text-transform: uppercase;
-color: var(–gold);
+color: var(-gold);
 margin-bottom: 24px;
 }
 .exp-title {
-font-family: var(–font-display);
+font-family: var(-font-display);
 font-size: clamp(2rem, 4vw, 3rem);
 font-weight: 300;
 line-height: 1.3;
-color: var(–offwhite);
+color: var(-offwhite);
 max-width: 700px;
 margin: 0 auto 28px;
 }
 .exp-desc {
-font-family: var(–font-body);
+font-family: var(-font-body);
 font-size: 0.95rem;
 font-weight: 200;
 line-height: 1.9;
@@ -391,7 +382,7 @@ left: 50%;
 transform: translateX(-50) scaleX(0);
 width: 40px;
 height: 1px;
-background: var(–gold);
+background: var(-gold);
 transition: transform 0.5s ease;
 }
 .exp-card:hover {
@@ -403,19 +394,19 @@ border-color: rgba(201,169,110,0.15);
 font-size: 1.6rem;
 margin-bottom: 20px;
 display: block;
-color: var(–gold);
+color: var(-gold);
 opacity: 0.7;
 }
 .exp-card-title {
-font-family: var(–font-display);
+font-family: var(-font-display);
 font-size: 1.05rem;
 font-weight: 400;
 letter-spacing: 0.08em;
-color: var(–offwhite);
+color: var(-offwhite);
 margin-bottom: 8px;
 }
 .exp-card-sub {
-font-family: var(–font-body);
+font-family: var(-font-body);
 font-size: 0.75rem;
 font-weight: 200;
 letter-spacing: 0.1em;
@@ -426,26 +417,26 @@ color: rgba(245,241,234,0.4);
 .menu-section {
 position: relative;
 padding: 120px 0;
-background: var(–black);
+background: var(-black);
 }
 .menu-header {
 text-align: center;
 margin-bottom: 60px;
 }
 .menu-label {
-font-family: var(–font-body);
+font-family: var(-font-body);
 font-size: 0.7rem;
 font-weight: 300;
 letter-spacing: 0.5em;
 text-transform: uppercase;
-color: var(–gold);
+color: var(-gold);
 margin-bottom: 24px;
 }
 .menu-title {
-font-family: var(–font-display);
+font-family: var(-font-display);
 font-size: clamp(2rem, 4vw, 3rem);
 font-weight: 300;
-color: var(–offwhite);
+color: var(-offwhite);
 }
 .menu-grid {
 display: grid;
@@ -489,26 +480,26 @@ transition: all 0.5s ease;
 background: linear-gradient(to top, rgba(5,5,5,0.95) 0%, rgba(193,18,31,0.1) 100%);
 }
 .menu-item-title {
-font-family: var(–font-display);
+font-family: var(-font-display);
 font-size: 1.2rem;
 font-weight: 400;
-color: var(–offwhite);
+color: var(-offwhite);
 margin-bottom: 4px;
 }
 .menu-item-sub {
-font-family: var(–font-body);
+font-family: var(-font-body);
 font-size: 0.7rem;
 font-weight: 200;
 letter-spacing: 0.15em;
 text-transform: uppercase;
-color: var(–gold);
+color: var(-gold);
 }
 
 /* ─── COMBO SECTION ─── */
 .combo-section {
 position: relative;
 padding: 120px 0;
-background: linear-gradient(180deg, var(–black) 0%, rgba(139,0,0,0.08) 50%, var(–black) 100%);
+background: linear-gradient(180deg, var(-black) 0%, rgba(139,0,0,0.08) 50%, var(-black) 100%);
 }
 .combo-card {
 max-width: 700px;
@@ -531,26 +522,26 @@ pointer-events: none;
 .combo-card::before { top: 16px; left: 16px; border-right: none; border-bottom: none; }
 .combo-card::after { bottom: 16px; right: 16px; border-left: none; border-top: none; }
 .combo-label {
-font-family: var(–font-body);
+font-family: var(-font-body);
 font-size: 0.7rem;
 font-weight: 300;
 letter-spacing: 0.5em;
 text-transform: uppercase;
-color: var(–gold);
+color: var(-gold);
 margin-bottom: 20px;
 }
 .combo-title {
-font-family: var(–font-display);
+font-family: var(-font-display);
 font-size: clamp(2rem, 4vw, 2.8rem);
 font-weight: 400;
-color: var(–offwhite);
+color: var(-offwhite);
 margin-bottom: 8px;
 }
 .combo-price {
-font-family: var(–font-display);
+font-family: var(-font-display);
 font-size: clamp(2.2rem, 5vw, 3.2rem);
 font-weight: 300;
-color: var(–gold);
+color: var(-gold);
 margin-bottom: 40px;
 }
 .combo-list {
@@ -563,7 +554,7 @@ margin-right: auto;
 margin-bottom: 40px;
 }
 .combo-list li {
-font-family: var(–font-body);
+font-family: var(-font-body);
 font-size: 0.9rem;
 font-weight: 300;
 color: rgba(245,241,234,0.85);
@@ -577,12 +568,12 @@ gap: 14px;
 content: ‘’;
 width: 6px;
 height: 6px;
-background: var(–gold);
+background: var(-gold);
 border-radius: 50%;
 flex-shrink: 0;
 }
 .combo-note {
-font-family: var(–font-body);
+font-family: var(-font-body);
 font-size: 0.75rem;
 font-weight: 200;
 color: rgba(245,241,234,0.4);
@@ -593,13 +584,13 @@ font-style: italic;
 display: inline-flex;
 align-items: center;
 gap: 10px;
-font-family: var(–font-body);
+font-family: var(-font-body);
 font-size: 0.8rem;
 font-weight: 400;
 letter-spacing: 0.25em;
 text-transform: uppercase;
-color: var(–black);
-background: linear-gradient(135deg, var(–gold), var(–gold-light));
+color: var(-black);
+background: linear-gradient(135deg, var(-gold), var(-gold-light));
 border: none;
 padding: 18px 48px;
 cursor: pointer;
@@ -615,27 +606,27 @@ box-shadow: 0 8px 40px rgba(201,169,110,0.3);
 .scarcity {
 padding: 100px 0;
 text-align: center;
-background: var(–black);
+background: var(-black);
 position: relative;
 }
 .scarcity-number {
-font-family: var(–font-display);
+font-family: var(-font-display);
 font-size: clamp(4rem, 10vw, 8rem);
 font-weight: 300;
-color: var(–red);
+color: var(-red);
 line-height: 1;
 margin-bottom: 12px;
 }
 .scarcity-text {
-font-family: var(–font-display);
+font-family: var(-font-display);
 font-size: clamp(1.2rem, 2.5vw, 1.8rem);
 font-weight: 300;
-color: var(–offwhite);
+color: var(-offwhite);
 margin-bottom: 24px;
 letter-spacing: 0.05em;
 }
 .scarcity-sub {
-font-family: var(–font-body);
+font-family: var(-font-body);
 font-size: 0.85rem;
 font-weight: 200;
 color: rgba(245,241,234,0.4);
@@ -656,7 +647,7 @@ overflow: hidden;
 .bar-fill {
 height: 100%;
 width: 0%;
-background: linear-gradient(90deg, var(–red), var(–gold));
+background: linear-gradient(90deg, var(-red), var(-gold));
 transition: width 2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .bar-fill.animated { width: 72%; }
@@ -666,7 +657,7 @@ justify-content: space-between;
 margin-top: 12px;
 }
 .bar-labels span {
-font-family: var(–font-body);
+font-family: var(-font-body);
 font-size: 0.65rem;
 font-weight: 300;
 letter-spacing: 0.15em;
@@ -677,7 +668,7 @@ color: rgba(245,241,234,0.35);
 /* ─── LOCATION SECTION ─── */
 .location-section {
 padding: 120px 0;
-background: linear-gradient(180deg, var(–black), var(–charcoal));
+background: linear-gradient(180deg, var(-black), var(-charcoal));
 }
 .location-inner {
 display: grid;
@@ -690,23 +681,23 @@ align-items: center;
 }
 .location-info { }
 .location-label {
-font-family: var(–font-body);
+font-family: var(-font-body);
 font-size: 0.7rem;
 font-weight: 300;
 letter-spacing: 0.5em;
 text-transform: uppercase;
-color: var(–gold);
+color: var(-gold);
 margin-bottom: 24px;
 }
 .location-name {
-font-family: var(–font-display);
+font-family: var(-font-display);
 font-size: clamp(1.8rem, 3vw, 2.4rem);
 font-weight: 400;
-color: var(–offwhite);
+color: var(-offwhite);
 margin-bottom: 16px;
 }
 .location-address {
-font-family: var(–font-body);
+font-family: var(-font-body);
 font-size: 0.9rem;
 font-weight: 200;
 line-height: 1.8;
@@ -714,16 +705,16 @@ color: rgba(245,241,234,0.5);
 margin-bottom: 8px;
 }
 .location-date {
-font-family: var(–font-body);
+font-family: var(-font-body);
 font-size: 0.85rem;
 font-weight: 300;
-color: var(–gold);
+color: var(-gold);
 margin-top: 20px;
 letter-spacing: 0.1em;
 }
 .location-map {
 aspect-ratio: 4/3;
-background: var(–charcoal-mid);
+background: var(-charcoal-mid);
 border: 1px solid rgba(255,255,255,0.05);
 overflow: hidden;
 position: relative;
@@ -744,7 +735,7 @@ filter: grayscale(0.4) brightness(0.7) contrast(1.1);
 position: relative;
 padding: 160px 0;
 text-align: center;
-background: var(–black);
+background: var(-black);
 overflow: hidden;
 }
 .cta-final::before {
@@ -754,7 +745,7 @@ inset: 0;
 background: radial-gradient(ellipse at center, rgba(193,18,31,0.08) 0%, transparent 70%);
 }
 .cta-jp {
-font-family: var(–font-jp);
+font-family: var(-font-jp);
 font-size: 1rem;
 font-weight: 200;
 letter-spacing: 0.5em;
@@ -762,11 +753,11 @@ color: rgba(201,169,110,0.3);
 margin-bottom: 32px;
 }
 .cta-text {
-font-family: var(–font-display);
+font-family: var(-font-display);
 font-size: clamp(1.8rem, 4vw, 3rem);
 font-weight: 300;
 font-style: italic;
-color: var(–offwhite);
+color: var(-offwhite);
 max-width: 650px;
 margin: 0 auto 48px;
 line-height: 1.4;
@@ -775,13 +766,13 @@ line-height: 1.4;
 display: inline-flex;
 align-items: center;
 gap: 12px;
-font-family: var(–font-body);
+font-family: var(-font-body);
 font-size: 0.85rem;
 font-weight: 400;
 letter-spacing: 0.3em;
 text-transform: uppercase;
-color: var(–offwhite);
-background: var(–red);
+color: var(-offwhite);
+background: var(-red);
 border: none;
 padding: 22px 56px;
 cursor: pointer;
@@ -805,7 +796,7 @@ text-align: center;
 border-top: 1px solid rgba(255,255,255,0.04);
 }
 .footer p {
-font-family: var(–font-body);
+font-family: var(-font-body);
 font-size: 0.7rem;
 font-weight: 200;
 letter-spacing: 0.15em;
