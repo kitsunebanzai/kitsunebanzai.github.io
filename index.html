@@ -124,42 +124,6 @@ background: #C9A96E;
 color: #050505;
 }
 
-
-/* ═══════════════ LOGO ═══════════════ */
-.logo-img {
-display: block;
-width: auto;
-height: auto;
-object-fit: contain;
-}
-
-.nav-logo-img {
-height: 58px;
-max-width: 190px;
-filter: drop-shadow(0 0 18px rgba(201,169,110,0.18));
-transition: all 0.5s ease;
-}
-
-.nav.scrolled .nav-logo-img {
-height: 46px;
-filter: drop-shadow(0 0 12px rgba(201,169,110,0.14));
-}
-
-.hero-logo {
-width: min(300px, 72vw);
-margin: 0 auto 22px;
-opacity: 0;
-animation: fadeSlideDown 1s 0.15s ease forwards;
-filter: drop-shadow(0 0 34px rgba(201,169,110,0.18));
-}
-
-.footer-logo {
-width: 130px;
-margin: 0 auto 22px;
-opacity: 0.78;
-filter: drop-shadow(0 0 18px rgba(201,169,110,0.12));
-}
-
 /* ═══════════════ HERO ═══════════════ */
 .hero {
 position: relative;
@@ -207,7 +171,7 @@ letter-spacing: 0.8em;
 color: #C9A96E;
 margin-bottom: 28px;
 opacity: 0;
-animation: fadeSlideDown 1s 0.45s ease forwards;
+animation: fadeSlideDown 1s 0.3s ease forwards;
 }
 .hero-title {
 font-family: 'Cormorant Garamond', Georgia, serif;
@@ -218,7 +182,7 @@ letter-spacing: 0.04em;
 color: #F5F1EA;
 margin-bottom: 8px;
 opacity: 0;
-animation: fadeSlideDown 1s 0.7s ease forwards;
+animation: fadeSlideDown 1s 0.6s ease forwards;
 }
 .hero-subtitle {
 font-family: 'Cormorant Garamond', Georgia, serif;
@@ -229,7 +193,7 @@ letter-spacing: 0.15em;
 color: #C9A96E;
 margin-bottom: 32px;
 opacity: 0;
-animation: fadeSlideDown 1s 0.95s ease forwards;
+animation: fadeSlideDown 1s 0.9s ease forwards;
 }
 .hero-text {
 font-family: 'Outfit', sans-serif;
@@ -689,14 +653,6 @@ width: 100%; max-width: 320px; justify-content: center;
 @media (max-width: 500px) {
 .menu-grid { grid-template-columns: 1fr; }
 }
-
-@media (max-width: 600px) {
-.nav-logo-img { height: 44px; max-width: 145px; }
-.nav.scrolled .nav-logo-img { height: 38px; }
-.hero-logo { width: min(240px, 76vw); margin-bottom: 18px; }
-.footer-logo { width: 105px; }
-}
-
 </style>
 
 </head>
@@ -708,7 +664,7 @@ width: 100%; max-width: 320px; justify-content: center;
 
 <nav class="nav" id="nav">
   <div class="nav-inner">
-    <img src="image.png" alt="Kitsune Banzai" class="logo-img nav-logo-img">
+    <div class="nav-logo">Kitsune <span>Banzai</span></div>
     <a href="https://wa.me/5548988331595?text=Ol%C3%A1%2C%20quero%20reservar%20uma%20mesa%20para%20a%20Noite%20Fusion%20dos%20Namorados." target="_blank" rel="noopener" class="nav-cta">Reservar</a>
   </div>
 </nav>
@@ -718,8 +674,8 @@ width: 100%; max-width: 320px; justify-content: center;
 <section class="hero" id="hero">
   <div class="hero-bg"></div>
   <div class="hero-content">
-    <img src="image.png" alt="Kitsune Banzai" class="logo-img hero-logo">
-    <p class="hero-kanji">狐 万 歳</p>
+      <img src="image.png" alt="Kitsune Banzai" class="logo-img footer-logo">
+      <p>Noite Fusion dos Namorados · Canti Lê Bistrô</p>
     <h1 class="hero-title">Kitsune Banzai</h1>
     <p class="hero-subtitle">Noite Fusion dos Namorados</p>
     <p class="hero-text">Uma experiência gastronômica exclusiva para celebrar o amor através da culinária oriental fusion.</p>
@@ -954,7 +910,6 @@ width: 100%; max-width: 320px; justify-content: center;
 </section>
 
 <footer class="footer">
-  <img src="image.png" alt="Kitsune Banzai" class="logo-img footer-logo">
   <p>Kitsune Banzai · Noite Fusion dos Namorados · Canti Lê Bistrô</p>
 </footer>
 
