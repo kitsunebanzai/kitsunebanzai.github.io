@@ -163,6 +163,29 @@ position: relative;
 z-index: 2;
 padding: 0 24px;
 }
+
+.hero-logo {
+width: min(205px, 36vw);
+height: auto;
+display: block;
+margin: 0 auto 18px;
+opacity: 0;
+filter: drop-shadow(0 0 14px rgba(201,169,110,0.12));
+animation: fadeLogoDown 1s 0.25s ease forwards;
+}
+
+.hero-kicker {
+font-family: 'Outfit', sans-serif;
+font-size: clamp(0.72rem, 1.1vw, 0.86rem);
+font-weight: 300;
+line-height: 1.6;
+letter-spacing: 0.08em;
+color: rgba(245,241,234,0.72);
+margin-bottom: 14px;
+opacity: 0;
+animation: fadeSlideDown 1s 0.45s ease forwards;
+}
+
 .hero-kanji {
 font-family: 'Noto Serif JP', serif;
 font-size: clamp(0.9rem, 1.5vw, 1.1rem);
@@ -305,6 +328,17 @@ animation: scrollPulse 2s ease-in-out infinite;
 @keyframes fadeSlideDown {
 from { opacity: 0; transform: translateY(-20px); }
 to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeLogoDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 0.50;
+    transform: translateY(0);
+  }
 }
 
 /* ═══════════════ DIVIDER ═══════════════ */
@@ -639,10 +673,23 @@ letter-spacing: 0.15em; color: rgba(245,241,234,0.25);
 .menu-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 768px) {
+.hero-logo {
+width: min(160px, 48vw);
+margin-bottom: 14px;
+filter: drop-shadow(0 0 10px rgba(201,169,110,0.10));
+}
+
+.hero-kicker {
+font-size: 0.72rem;
+letter-spacing: 0.04em;
+margin-bottom: 12px;
+}
+
 .exp-grid { grid-template-columns: repeat(2, 1fr); }
 .location-inner { grid-template-columns: 1fr; gap: 40px; }
 }
 @media (max-width: 600px) {
+.hero-content { padding: 88px 24px 64px; }
 .hero-buttons { flex-direction: column; align-items: center; }
 .btn-primary, .btn-secondary, .combo-btn, .cta-btn {
 width: 100%; max-width: 320px; justify-content: center;
@@ -673,12 +720,15 @@ width: 100%; max-width: 320px; justify-content: center;
 
 <section class="hero" id="hero">
   <div class="hero-bg"></div>
+
   <div class="hero-content">
-      <img src="image.png" alt="Kitsune Banzai" class="logo-img footer-logo">
-      <p>Noite Fusion dos Namorados · Canti Lê Bistrô</p>
+    <img src="image.png" alt="Kitsune Banzai" class="hero-logo">
+    <p class="hero-kicker">Noite Fusion dos Namorados · Canti Lê Bistrô</p>
+
     <h1 class="hero-title">Kitsune Banzai</h1>
     <p class="hero-subtitle">Noite Fusion dos Namorados</p>
     <p class="hero-text">Uma experiência gastronômica exclusiva para celebrar o amor através da culinária oriental fusion.</p>
+
     <div class="hero-buttons">
       <a href="https://wa.me/5548988331595?text=Ol%C3%A1%2C%20quero%20reservar%20uma%20mesa%20para%20a%20Noite%20Fusion%20dos%20Namorados." target="_blank" rel="noopener" class="btn-primary">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
@@ -686,10 +736,12 @@ width: 100%; max-width: 320px; justify-content: center;
       </a>
       <a href="#experiencia" class="btn-secondary">Ver Experiência</a>
     </div>
+
     <div class="hero-availability">
       <span>Somente 25 mesas disponíveis</span>
     </div>
   </div>
+
   <div class="hero-scroll-indicator">
     <div class="scroll-line"></div>
   </div>
