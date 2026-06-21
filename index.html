@@ -1,1311 +1,1104 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kitsune Banzai – Noite Fusion dos Namorados</title>
+<title>Kitsune Banzai – Gastronomia Japonesa</title>
+<meta name="description" content="Kitsune Banzai – Gastronomia Japonesa em Tubarão/SC. Sushi fusion autêntico para comer no local ou pedir pelo delivery. Sabores autênticos. Momentos inesquecíveis.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Outfit:wght@200;300;400;500;600&family=Noto+Serif+JP:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500&family=Noto+Serif+JP:wght@200;300;400&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
-
+/* ── RESET & BASE ── */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
 body {
-background-color: #050505;
-color: #F5F1EA;
-font-family: 'Outfit', 'Helvetica Neue', Arial, sans-serif;
-font-weight: 300;
-overflow-x: hidden;
--webkit-font-smoothing: antialiased;
+  background:#060606;
+  color:#F2EDE4;
+  font-family:'Outfit','Helvetica Neue',sans-serif;
+  font-weight:300;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+::-webkit-scrollbar { width:5px; }
+::-webkit-scrollbar-track { background:#060606; }
+::-webkit-scrollbar-thumb { background:#C1121F; border-radius:3px; }
+
+img { display:block; max-width:100%; }
+a { color:inherit; text-decoration:none; }
+.container { max-width:1160px; margin:0 auto; padding:0 24px; }
+
+/* ── TOKENS ── */
+:root {
+  --red:#C1121F;
+  --red-hover:#D41425;
+  --gold:#C9A96E;
+  --gold-light:#D9BC8A;
+  --cream:#F2EDE4;
+  --ink:#060606;
+  --surface:#111111;
+  --border:rgba(255,255,255,0.06);
+  --border-gold:rgba(201,169,110,0.25);
 }
 
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #050505; }
-::-webkit-scrollbar-thumb { background: #C1121F; border-radius: 3px; }
-
-.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-
+/* ── REVEAL ── */
 .reveal {
-opacity: 0;
-transform: translateY(40px);
-transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity:0;
+  transform:translateY(32px);
+  transition:opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1);
 }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-.reveal-delay-1 { transition-delay: 0.15s; }
-.reveal-delay-2 { transition-delay: 0.3s; }
-.reveal-delay-3 { transition-delay: 0.45s; }
-.reveal-delay-4 { transition-delay: 0.6s; }
+.reveal.visible { opacity:1; transform:none; }
+.d1{transition-delay:.1s} .d2{transition-delay:.22s} .d3{transition-delay:.34s} .d4{transition-delay:.46s}
 
-/* Sutil textura japonesa */
-body::before {
-content: '';
-position: fixed;
-top: 0; left: 0; right: 0; bottom: 0;
-background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0 L60 30 L30 60 L0 30Z' fill='none' stroke='%23ffffff' stroke-width='0.3' opacity='0.02'/%3E%3C/svg%3E");
-pointer-events: none;
-z-index: 0;
-}
-
-/* Partículas */
-.particles {
-position: fixed;
-top: 0; left: 0; right: 0; bottom: 0;
-pointer-events: none;
-z-index: 0;
-overflow: hidden;
-}
+/* ── PARTICLES ── */
+.particles { position:fixed; inset:0; pointer-events:none; z-index:0; overflow:hidden; }
 .particle {
-position: absolute;
-width: 2px;
-height: 2px;
-background: #C9A96E;
-border-radius: 50%;
-opacity: 0;
-animation: floatUp linear infinite;
+  position:absolute; width:1.5px; height:1.5px;
+  background:var(--gold); border-radius:50%; opacity:0;
+  animation:rise linear infinite;
 }
-@keyframes floatUp {
-0% { opacity: 0; transform: translateY(100vh) scale(0); }
-10% { opacity: 0.6; }
-90% { opacity: 0.2; }
-100% { opacity: 0; transform: translateY(-10vh) scale(1); }
+@keyframes rise {
+  0%   { opacity:0; transform:translateY(100vh) scale(0); }
+  10%  { opacity:.5; }
+  90%  { opacity:.15; }
+  100% { opacity:0; transform:translateY(-10vh) scale(1); }
 }
 
-/* ═══════════════ NAV ═══════════════ */
+/* ── NAV ── */
 .nav {
-position: fixed;
-top: 0; left: 0; right: 0;
-z-index: 100;
-padding: 20px 0;
-transition: all 0.5s ease;
+  position:fixed; top:0; left:0; right:0; z-index:200;
+  padding:18px 0;
+  transition:all .4s ease;
 }
 .nav.scrolled {
-background: rgba(5,5,5,0.92);
-backdrop-filter: blur(20px);
--webkit-backdrop-filter: blur(20px);
-padding: 14px 0;
-border-bottom: 1px solid rgba(193,18,31,0.15);
+  background:rgba(6,6,6,.93);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  padding:12px 0;
+  border-bottom:1px solid var(--border-gold);
 }
 .nav-inner {
-display: flex;
-justify-content: space-between;
-align-items: center;
-max-width: 1200px;
-margin: 0 auto;
-padding: 0 24px;
+  display:flex; align-items:center; justify-content:space-between;
+  max-width:1160px; margin:0 auto; padding:0 24px;
 }
 .nav-logo {
-font-family: 'Cormorant Garamond', Georgia, serif;
-font-size: 1.3rem;
-font-weight: 400;
-letter-spacing: 0.15em;
-color: #F5F1EA;
-text-transform: uppercase;
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.25rem; font-weight:400;
+  letter-spacing:.18em; text-transform:uppercase;
+  display:flex; align-items:center; gap:10px;
 }
-.nav-logo span { color: #C1121F; }
+.nav-logo-dot { width:6px; height:6px; background:var(--red); border-radius:50%; }
 
-.nav-actions {
-display: flex;
-align-items: center;
-gap: 14px;
+.nav-links {
+  display:flex; align-items:center; gap:32px;
+  list-style:none;
 }
+.nav-links a {
+  font-size:.72rem; font-weight:300;
+  letter-spacing:.22em; text-transform:uppercase;
+  color:rgba(242,237,228,.6);
+  transition:color .3s;
+}
+.nav-links a:hover { color:var(--gold); }
 
-.nav-instagram {
-width: 38px;
-height: 38px;
-display: inline-flex;
-align-items: center;
-justify-content: center;
-color: #C9A96E;
-border: 1px solid rgba(201,169,110,0.45);
-text-decoration: none;
-transition: all 0.4s ease;
-}
+.nav-actions { display:flex; align-items:center; gap:12px; }
 
-.nav-instagram:hover {
-background: rgba(201,169,110,0.12);
-border-color: #C9A96E;
-color: #F5F1EA;
-transform: translateY(-1px);
+.nav-ig {
+  width:36px; height:36px;
+  display:inline-flex; align-items:center; justify-content:center;
+  border:1px solid var(--border-gold); color:var(--gold);
+  transition:all .3s;
 }
+.nav-ig:hover { background:rgba(201,169,110,.1); border-color:var(--gold); }
 
-.nav-cta {
-font-family: 'Outfit', sans-serif;
-font-size: 0.75rem;
-font-weight: 400;
-letter-spacing: 0.2em;
-text-transform: uppercase;
-color: #F5F1EA;
-background: transparent;
-border: 1px solid #C9A96E;
-padding: 10px 24px;
-cursor: pointer;
-text-decoration: none;
-transition: all 0.4s ease;
+.nav-btn {
+  font-size:.72rem; font-weight:400; letter-spacing:.2em; text-transform:uppercase;
+  background:var(--red); color:var(--cream);
+  padding:10px 22px; border:none; cursor:pointer;
+  transition:background .3s;
 }
-.nav-cta:hover {
-background: #C9A96E;
-color: #050505;
+.nav-btn:hover { background:var(--red-hover); }
+
+.nav-hamburger {
+  display:none; flex-direction:column; gap:5px; cursor:pointer;
+  background:none; border:none; padding:4px;
+}
+.nav-hamburger span {
+  display:block; width:22px; height:1.5px; background:var(--cream);
+  transition:all .3s;
 }
 
-/* ═══════════════ HERO ═══════════════ */
+/* ── MOBILE NAV ── */
+.mobile-nav {
+  display:none; position:fixed; top:0; left:0; right:0; bottom:0;
+  background:rgba(6,6,6,.97); z-index:190;
+  flex-direction:column; align-items:center; justify-content:center; gap:32px;
+}
+.mobile-nav.open { display:flex; }
+.mobile-nav a {
+  font-family:'Cormorant Garamond',serif;
+  font-size:2rem; font-weight:300;
+  letter-spacing:.1em; color:var(--cream);
+  transition:color .3s;
+}
+.mobile-nav a:hover { color:var(--gold); }
+.mobile-nav-close {
+  position:absolute; top:24px; right:24px;
+  background:none; border:none; color:var(--cream);
+  font-size:1.5rem; cursor:pointer; line-height:1;
+}
+.mobile-nav-actions { display:flex; flex-direction:column; align-items:center; gap:12px; margin-top:16px; }
+.mobile-nav-actions .nav-btn { width:220px; text-align:center; padding:14px; }
+
+/* ── HERO ── */
 .hero {
-position: relative;
-min-height: 100vh;
-display: flex;
-align-items: center;
-justify-content: center;
-text-align: center;
-overflow: hidden;
-background-color: #080808;
+  position:relative; min-height:100vh;
+  display:flex; align-items:center; justify-content:center;
+  text-align:center; overflow:hidden;
 }
 .hero-bg {
-position: absolute;
-top: 0; left: 0; right: 0; bottom: 0;
-background-color: #080808;
-background-image:
-linear-gradient(180deg, rgba(5,5,5,0.3) 0%, rgba(5,5,5,0.6) 40%, rgba(5,5,5,0.85) 100%),
-url('https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=1600&q=80');
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
-transform: scale(1.05);
-animation: heroZoom 20s ease-in-out infinite alternate;
+  position:absolute; inset:0;
+  background:#080808
+    url('https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=1600&q=80')
+    center/cover no-repeat;
+  animation:heroBreath 20s ease-in-out infinite alternate;
 }
-@keyframes heroZoom {
-0% { transform: scale(1.05); }
-100% { transform: scale(1.12); }
+.hero-bg::before {
+  content:'';
+  position:absolute; inset:0;
+  background:linear-gradient(180deg,rgba(6,6,6,.45) 0%,rgba(6,6,6,.6) 40%,rgba(6,6,6,.92) 100%);
 }
 .hero-bg::after {
-content: '';
-position: absolute;
-top: 0; left: 0; right: 0; bottom: 0;
-background: radial-gradient(ellipse at center bottom, rgba(193,18,31,0.12) 0%, transparent 60%);
+  content:'';
+  position:absolute; inset:0;
+  background:radial-gradient(ellipse at center bottom, rgba(193,18,31,.1) 0%, transparent 55%);
 }
-.hero-content {
-position: relative;
-z-index: 2;
-padding: 0 24px;
-}
+@keyframes heroBreath { from{transform:scale(1.04)} to{transform:scale(1.1)} }
+
+.hero-content { position:relative; z-index:2; padding:0 24px; }
 
 .hero-logo {
-width: min(205px, 36vw);
-height: auto;
-display: block;
-margin: 0 auto 18px;
-opacity: 0;
-filter: drop-shadow(0 0 14px rgba(201,169,110,0.12));
-animation: fadeLogoDown 1s 0.25s ease forwards;
+  width: clamp(100px, 12vw, 140px);
+  margin: 0 auto 20px;
+  opacity: 0;
+  filter: drop-shadow(0 0 16px rgba(201,169,110,.12));
+  animation: fadeDown .9s .2s ease forwards;
+}
+@keyframes fadeDown {
+  from{opacity:0;transform:translateY(-16px)}
+  to{opacity:.65;transform:none}
 }
 
-.hero-kicker {
-font-family: 'Outfit', sans-serif;
-font-size: clamp(0.72rem, 1.1vw, 0.86rem);
-font-weight: 300;
-line-height: 1.6;
-letter-spacing: 0.08em;
-color: rgba(245,241,234,0.72);
-margin-bottom: 14px;
-opacity: 0;
-animation: fadeSlideDown 1s 0.45s ease forwards;
+.hero-jp {
+  font-family:'Noto Serif JP',serif;
+  font-size:clamp(.8rem,1.2vw,.95rem);
+  font-weight:200; letter-spacing:.7em; color:var(--gold);
+  margin-bottom:20px; opacity:0;
+  animation:fadeUp .9s .35s ease forwards;
+}
+.hero-h1 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3.8rem,10vw,7.5rem);
+  font-weight:300; line-height:.95;
+  letter-spacing:.03em; color:var(--cream);
+  margin-bottom:6px; opacity:0;
+  animation:fadeUp .9s .5s ease forwards;
+}
+.hero-h1 em { font-style:italic; color:var(--gold); }
+.hero-sub {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1rem,2vw,1.4rem);
+  font-weight:300; font-style:italic;
+  letter-spacing:.2em; color:rgba(242,237,228,.55);
+  margin-bottom:36px; opacity:0;
+  animation:fadeUp .9s .65s ease forwards;
+}
+.hero-tagline {
+  font-size:clamp(.85rem,1.3vw,.95rem);
+  font-weight:200; line-height:1.8;
+  color:rgba(242,237,228,.6);
+  margin-bottom:44px; opacity:0;
+  animation:fadeUp .9s .8s ease forwards;
 }
 
-.hero-kanji {
-font-family: 'Noto Serif JP', serif;
-font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-font-weight: 200;
-letter-spacing: 0.8em;
-color: #C9A96E;
-margin-bottom: 28px;
-opacity: 0;
-animation: fadeSlideDown 1s 0.3s ease forwards;
+.hero-ctas {
+  display:flex; gap:16px; justify-content:center; flex-wrap:wrap;
+  opacity:0; animation:fadeUp .9s .95s ease forwards;
 }
-.hero-title {
-font-family: 'Cormorant Garamond', Georgia, serif;
-font-size: clamp(3.5rem, 9vw, 7rem);
-font-weight: 300;
-line-height: 1;
-letter-spacing: 0.04em;
-color: #F5F1EA;
-margin-bottom: 8px;
-opacity: 0;
-animation: fadeSlideDown 1s 0.6s ease forwards;
-}
-.hero-subtitle {
-font-family: 'Cormorant Garamond', Georgia, serif;
-font-size: clamp(1.1rem, 2.5vw, 1.6rem);
-font-weight: 300;
-font-style: italic;
-letter-spacing: 0.15em;
-color: #C9A96E;
-margin-bottom: 32px;
-opacity: 0;
-animation: fadeSlideDown 1s 0.9s ease forwards;
-}
-.hero-text {
-font-family: 'Outfit', sans-serif;
-font-size: clamp(0.85rem, 1.3vw, 1rem);
-font-weight: 200;
-line-height: 1.8;
-max-width: 560px;
-margin: 0 auto 44px;
-color: rgba(245,241,234,0.7);
-opacity: 0;
-animation: fadeSlideDown 1s 1.2s ease forwards;
-}
-.hero-buttons {
-display: flex;
-gap: 20px;
-justify-content: center;
-flex-wrap: wrap;
-opacity: 0;
-animation: fadeSlideDown 1s 1.5s ease forwards;
+@keyframes fadeUp {
+  from{opacity:0;transform:translateY(16px)}
+  to{opacity:1;transform:none}
 }
 
-.btn-primary {
-display: inline-flex;
-align-items: center;
-gap: 10px;
-font-family: 'Outfit', sans-serif;
-font-size: 0.8rem;
-font-weight: 400;
-letter-spacing: 0.25em;
-text-transform: uppercase;
-color: #F5F1EA;
-background: #C1121F;
-border: none;
-padding: 18px 42px;
-cursor: pointer;
-text-decoration: none;
-position: relative;
-overflow: hidden;
-transition: all 0.4s ease;
+.btn-red {
+  display:inline-flex; align-items:center; gap:10px;
+  font-size:.78rem; font-weight:400; letter-spacing:.22em; text-transform:uppercase;
+  background:var(--red); color:var(--cream);
+  padding:17px 40px; border:none; cursor:pointer;
+  transition:all .35s;
+  position:relative; overflow:hidden;
 }
-.btn-primary::before {
-content: '';
-position: absolute;
-top: 0; left: 0; right: 0; bottom: 0;
-background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%);
-opacity: 0;
-transition: opacity 0.4s ease;
+.btn-red::after {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.08),transparent);
+  opacity:0; transition:opacity .35s;
 }
-.btn-primary:hover {
-background: #D41425;
-transform: translateY(-2px);
-box-shadow: 0 8px 40px rgba(193,18,31,0.4);
-}
-.btn-primary:hover::before { opacity: 1; }
+.btn-red:hover { background:var(--red-hover); transform:translateY(-2px); box-shadow:0 8px 36px rgba(193,18,31,.38); }
+.btn-red:hover::after { opacity:1; }
 
-.btn-secondary {
-font-family: 'Outfit', sans-serif;
-font-size: 0.8rem;
-font-weight: 300;
-letter-spacing: 0.25em;
-text-transform: uppercase;
-color: #F5F1EA;
-background: transparent;
-border: 1px solid rgba(245,241,234,0.25);
-padding: 18px 42px;
-cursor: pointer;
-text-decoration: none;
-transition: all 0.4s ease;
+.btn-outline {
+  display:inline-flex; align-items:center; gap:10px;
+  font-size:.78rem; font-weight:300; letter-spacing:.22em; text-transform:uppercase;
+  background:transparent; color:var(--cream);
+  padding:17px 40px; border:1px solid rgba(242,237,228,.2);
+  cursor:pointer; transition:all .35s;
 }
-.btn-secondary:hover { border-color: #C9A96E; color: #C9A96E; }
+.btn-outline:hover { border-color:var(--gold); color:var(--gold); }
 
-.hero-availability {
-margin-top: 48px;
-opacity: 0;
-animation: fadeSlideDown 1s 1.8s ease forwards;
+.hero-badge {
+  margin-top:44px; opacity:0;
+  animation:fadeUp .9s 1.15s ease forwards;
 }
-.hero-availability span {
-font-family: 'Outfit', sans-serif;
-font-size: 0.7rem;
-font-weight: 300;
-letter-spacing: 0.3em;
-text-transform: uppercase;
-color: #C9A96E;
-padding: 8px 20px;
-border: 1px solid rgba(201,169,110,0.3);
+.hero-badge span {
+  font-size:.68rem; font-weight:300; letter-spacing:.3em; text-transform:uppercase;
+  color:var(--gold); border:1px solid var(--border-gold);
+  padding:8px 22px;
 }
 
-.hero-scroll-indicator {
-position: absolute;
-bottom: 40px;
-left: 50%;
-transform: translateX(-50%);
-z-index: 2;
-opacity: 0;
-animation: fadeSlideDown 1s 2.2s ease forwards;
+.hero-scroll {
+  position:absolute; bottom:36px; left:50%; transform:translateX(-50%);
+  z-index:2; opacity:0;
+  animation:fadeUp .9s 1.4s ease forwards;
 }
 .scroll-line {
-width: 1px;
-height: 60px;
-background: linear-gradient(to bottom, #C9A96E, transparent);
-margin: 0 auto;
-animation: scrollPulse 2s ease-in-out infinite;
+  width:1px; height:52px; margin:0 auto;
+  background:linear-gradient(to bottom, var(--gold), transparent);
+  animation:pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{opacity:.3} 50%{opacity:.8} }
+
+/* ── STRIP: horários rápidos ── */
+.strip {
+  background:var(--red);
+  padding:14px 0;
+  overflow:hidden;
+}
+.strip-inner {
+  display:flex; align-items:center; justify-content:center;
+  gap:40px; flex-wrap:wrap;
+  max-width:1160px; margin:0 auto; padding:0 24px;
+}
+.strip-item {
+  display:flex; align-items:center; gap:10px;
+  font-size:.75rem; font-weight:300; letter-spacing:.18em; text-transform:uppercase;
+  color:rgba(242,237,228,.9);
+  white-space:nowrap;
+}
+.strip-item svg { opacity:.7; flex-shrink:0; }
+.strip-sep { width:1px; height:18px; background:rgba(255,255,255,.2); }
+
+/* ── SECTION COMMON ── */
+.sec-label {
+  font-size:.68rem; font-weight:300; letter-spacing:.5em; text-transform:uppercase;
+  color:var(--gold); margin-bottom:20px;
+}
+.sec-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,4vw,3rem);
+  font-weight:300; line-height:1.2; color:var(--cream);
+}
+.sec-desc {
+  font-size:.92rem; font-weight:200; line-height:1.95;
+  color:rgba(242,237,228,.55);
+}
+.divider {
+  text-align:center; padding:16px 0;
+  font-size:7px; color:var(--gold); letter-spacing:2em;
+}
+.divider::before { content:'◆'; }
+
+/* ── SOBRE / CHEF ── */
+.sobre { padding:110px 0; background:var(--surface); }
+.sobre-inner {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:72px; align-items:center;
+}
+.sobre-img-wrap {
+  position:relative;
+  max-width:360px;
+}
+.sobre-img {
+  width:100%; aspect-ratio:3/4; object-fit:cover;
+  object-position:center top;
+  filter:brightness(.85) saturate(.95);
+}
+.sobre-img-frame {
+  position:absolute; bottom:-18px; right:-18px;
+  width:calc(100% - 36px); height:calc(100% - 36px);
+  border:1px solid var(--border-gold); pointer-events:none;
+}
+.sobre-text { display:flex; flex-direction:column; gap:22px; }
+.chef-sig {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.5rem; font-style:italic; color:var(--gold);
+}
+.chef-years {
+  display:inline-block;
+  font-size:.68rem; font-weight:300; letter-spacing:.3em; text-transform:uppercase;
+  color:var(--gold); border:1px solid var(--border-gold); padding:6px 16px;
 }
 
-@keyframes scrollPulse {
-0%, 100% { opacity: 0.3; height: 60px; }
-50% { opacity: 0.8; height: 40px; }
+/* ── CARDÁPIO ── */
+.cardapio { padding:110px 0; background:var(--ink); }
+.cardapio-header { text-align:center; margin-bottom:56px; }
+.cardapio-grid {
+  display:grid; grid-template-columns:repeat(4,1fr); gap:3px;
 }
-@keyframes fadeSlideDown {
-from { opacity: 0; transform: translateY(-20px); }
-to { opacity: 1; transform: translateY(0); }
+.prato {
+  position:relative; overflow:hidden; cursor:pointer;
+  aspect-ratio:1; background:#111;
 }
-
-@keyframes fadeLogoDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 0.60;
-    transform: translateY(0);
-  }
+.prato img {
+  width:100%; height:100%; object-fit:cover;
+  filter:brightness(.72) saturate(.9);
+  transition:transform .7s cubic-bezier(.16,1,.3,1), filter .5s;
 }
-
-/* ═══════════════ DIVIDER ═══════════════ */
-.section-divider { text-align: center; padding: 20px 0; }
-.section-divider::before { content: '◆'; font-size: 8px; color: #C9A96E; letter-spacing: 1.5em; }
-
-/* ═══════════════ EXPERIENCE ═══════════════ */
-.experience {
-position: relative;
-padding: 120px 0;
-background: linear-gradient(180deg, #050505 0%, #1A1A1A 50%, #050505 100%);
+.prato:hover img { transform:scale(1.08); filter:brightness(.85) saturate(1.1); }
+.prato-overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(6,6,6,.9) 0%, transparent 55%);
+  display:flex; flex-direction:column; justify-content:flex-end; padding:22px;
+  transition:background .4s;
 }
-.experience::before {
-content: '';
-position: absolute;
-top: 0; left: 50%;
-transform: translateX(-50%);
-width: 1px; height: 80px;
-background: linear-gradient(to bottom, transparent, #C9A96E, transparent);
+.prato:hover .prato-overlay {
+  background:linear-gradient(to top, rgba(6,6,6,.96) 0%, rgba(193,18,31,.08) 100%);
 }
-.exp-header { text-align: center; margin-bottom: 80px; }
-.exp-label {
-font-family: 'Outfit', sans-serif;
-font-size: 0.7rem;
-font-weight: 300;
-letter-spacing: 0.5em;
-text-transform: uppercase;
-color: #C9A96E;
-margin-bottom: 24px;
+.prato-nome {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.1rem; font-weight:400; color:var(--cream); margin-bottom:4px;
 }
-.exp-title {
-font-family: 'Cormorant Garamond', Georgia, serif;
-font-size: clamp(2rem, 4vw, 3rem);
-font-weight: 300;
-line-height: 1.3;
-color: #F5F1EA;
-max-width: 700px;
-margin: 0 auto 28px;
-}
-.exp-desc {
-font-family: 'Outfit', sans-serif;
-font-size: 0.95rem;
-font-weight: 200;
-line-height: 1.9;
-color: rgba(245,241,234,0.6);
-max-width: 600px;
-margin: 0 auto;
-}
-.exp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-
-.exp-card {
-background: rgba(255,255,255,0.02);
-border: 1px solid rgba(255,255,255,0.04);
-padding: 48px 32px;
-text-align: center;
-transition: all 0.5s ease;
-position: relative;
-}
-.exp-card::before {
-content: '';
-position: absolute;
-top: 0; left: 50%;
-transform: translateX(-50%) scaleX(0);
-width: 40px; height: 1px;
-background: #C9A96E;
-transition: transform 0.5s ease;
-}
-.exp-card:hover { background: rgba(255,255,255,0.04); border-color: rgba(201,169,110,0.15); }
-.exp-card:hover::before { transform: translateX(-50%) scaleX(1); }
-
-.exp-icon {
-font-size: 1.6rem;
-margin-bottom: 20px;
-display: block;
-color: #C9A96E;
-opacity: 0.7;
-}
-.exp-card-title {
-font-family: 'Cormorant Garamond', Georgia, serif;
-font-size: 1.05rem;
-font-weight: 400;
-letter-spacing: 0.08em;
-color: #F5F1EA;
-margin-bottom: 8px;
-}
-.exp-card-sub {
-font-family: 'Outfit', sans-serif;
-font-size: 0.75rem;
-font-weight: 200;
-letter-spacing: 0.1em;
-color: rgba(245,241,234,0.4);
+.prato-cat {
+  font-size:.68rem; font-weight:200; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--gold);
 }
 
-
-/* ═══════════════ FUSION STORY ═══════════════ */
-.fusion-story {
-position: relative;
-padding: 120px 0;
-background:
-radial-gradient(ellipse at top right, rgba(193,18,31,0.08) 0%, transparent 45%),
-linear-gradient(180deg, #050505 0%, #111111 55%, #050505 100%);
+.cardapio-cta {
+  text-align:center; margin-top:52px;
+  display:flex; flex-direction:column; align-items:center; gap:16px;
+}
+.cardapio-note {
+  font-size:.78rem; font-weight:200; color:rgba(242,237,228,.35);
+  letter-spacing:.05em;
 }
 
-.fusion-inner {
-display: grid;
-grid-template-columns: 0.95fr 1.05fr;
-gap: 64px;
-align-items: start;
+/* ── DELIVERY ── */
+.delivery {
+  padding:110px 0;
+  background:linear-gradient(180deg, var(--surface) 0%, #1A1010 100%);
+}
+.delivery-inner {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:64px; align-items:center;
+}
+.delivery-text { display:flex; flex-direction:column; gap:24px; }
+.delivery-channels {
+  display:flex; flex-direction:column; gap:12px;
+}
+.channel-card {
+  display:flex; align-items:center; gap:20px;
+  background:rgba(255,255,255,.03);
+  border:1px solid var(--border);
+  padding:20px 24px;
+  transition:all .4s;
+  cursor:pointer;
+  text-decoration:none; color:inherit;
+}
+.channel-card:hover {
+  border-color:var(--border-gold);
+  background:rgba(201,169,110,.05);
+  transform:translateX(4px);
+}
+.channel-icon {
+  width:44px; height:44px; flex-shrink:0;
+  display:flex; align-items:center; justify-content:center;
+  background:rgba(201,169,110,.1); border:1px solid var(--border-gold);
+}
+.channel-info h4 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.1rem; font-weight:400; color:var(--cream); margin-bottom:2px;
+}
+.channel-info p {
+  font-size:.75rem; font-weight:200; color:rgba(242,237,228,.45); letter-spacing:.05em;
+}
+.channel-arrow { margin-left:auto; color:var(--gold); opacity:.5; transition:opacity .3s; }
+.channel-card:hover .channel-arrow { opacity:1; }
+
+.delivery-visual {
+  position:relative;
+}
+.delivery-img {
+  width:100%; aspect-ratio:3/4; object-fit:cover;
+  filter:brightness(.8) saturate(.9);
+}
+.delivery-badge {
+  position:absolute; bottom:24px; left:24px;
+  background:rgba(6,6,6,.88);
+  border:1px solid var(--border-gold);
+  padding:18px 24px;
+  backdrop-filter:blur(8px);
+}
+.delivery-badge-num {
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.2rem; font-weight:300; color:var(--gold); line-height:1;
+}
+.delivery-badge-label {
+  font-size:.68rem; font-weight:200; letter-spacing:.2em;
+  text-transform:uppercase; color:rgba(242,237,228,.5);
+  margin-top:4px;
 }
 
-.fusion-intro {
-position: sticky;
-top: 110px;
+/* ── DIFERENCIAIS ── */
+.diferenciais { padding:110px 0; background:var(--ink); }
+.dif-header { text-align:center; margin-bottom:64px; }
+.dif-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:2px;
+}
+.dif-card {
+  background:rgba(255,255,255,.02);
+  border:1px solid var(--border);
+  padding:44px 32px; text-align:center;
+  transition:all .4s;
+  position:relative; overflow:hidden;
+}
+.dif-card::before {
+  content:''; position:absolute; top:0; left:50%;
+  transform:translateX(-50%) scaleX(0);
+  width:40px; height:1px; background:var(--gold);
+  transition:transform .4s;
+}
+.dif-card:hover { background:rgba(255,255,255,.035); border-color:var(--border-gold); }
+.dif-card:hover::before { transform:translateX(-50%) scaleX(1); }
+.dif-icon { font-size:1.4rem; color:var(--gold); opacity:.7; margin-bottom:18px; display:block; }
+.dif-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.1rem; font-weight:400; color:var(--cream); margin-bottom:10px;
+}
+.dif-desc {
+  font-size:.82rem; font-weight:200; line-height:1.85;
+  color:rgba(242,237,228,.45);
 }
 
-.fusion-label {
-font-family: 'Outfit', sans-serif;
-font-size: 0.7rem;
-font-weight: 300;
-letter-spacing: 0.5em;
-text-transform: uppercase;
-color: #C9A96E;
-margin-bottom: 24px;
+/* ── GALERIA ── */
+.galeria { padding:0; background:var(--ink); }
+.galeria-grid {
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  grid-template-rows:300px 300px;
+  gap:3px;
+}
+.galeria-item { overflow:hidden; background:#111; }
+.galeria-item:first-child { grid-row:1 / 3; }
+.galeria-item img {
+  width:100%; height:100%; object-fit:cover;
+  filter:brightness(.75) saturate(.85);
+  transition:transform .7s cubic-bezier(.16,1,.3,1), filter .5s;
+}
+.galeria-item:hover img { transform:scale(1.06); filter:brightness(.9) saturate(1.05); }
+
+/* ── HORÁRIOS ── */
+.horarios {
+  padding:110px 0;
+  background:linear-gradient(180deg, var(--surface) 0%, #100808 100%);
+}
+.horarios-inner {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:64px; align-items:start;
+}
+.horarios-text { display:flex; flex-direction:column; gap:28px; }
+.horario-row {
+  border-left:2px solid var(--red);
+  padding-left:20px; display:flex; flex-direction:column; gap:4px;
+}
+.horario-day {
+  font-size:.7rem; font-weight:300; letter-spacing:.3em;
+  text-transform:uppercase; color:rgba(242,237,228,.45);
+}
+.horario-time {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.6rem; font-weight:300; color:var(--cream);
+}
+.horario-time span { color:var(--gold); }
+
+.horarios-map {
+  aspect-ratio:4/3; background:#1a1a1a;
+  border:1px solid var(--border); overflow:hidden;
+}
+.horarios-map iframe {
+  width:100%; height:100%; border:none;
+  filter:grayscale(.85) brightness(.55) contrast(1.2);
+  transition:filter .4s;
+}
+.horarios-map:hover iframe { filter:grayscale(.5) brightness(.65) contrast(1.1); }
+
+.horarios-address {
+  display:flex; flex-direction:column; gap:6px;
+  padding-top:20px; border-top:1px solid var(--border);
+}
+.horarios-address p {
+  font-size:.85rem; font-weight:200; line-height:1.7;
+  color:rgba(242,237,228,.5);
+}
+.horarios-address a {
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:.72rem; font-weight:300; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--gold); margin-top:8px; transition:color .3s;
+}
+.horarios-address a:hover { color:var(--gold-light); }
+
+/* ── RESERVA CTA ── */
+.reserva-cta {
+  padding:140px 0; text-align:center;
+  background:var(--ink); overflow:hidden; position:relative;
+}
+.reserva-cta::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse at center, rgba(193,18,31,.07) 0%, transparent 65%);
+}
+.reserva-jp {
+  font-family:'Noto Serif JP',serif;
+  font-size:.9rem; font-weight:200;
+  letter-spacing:.5em; color:rgba(201,169,110,.25);
+  margin-bottom:28px;
+}
+.reserva-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,4.5vw,3.4rem);
+  font-weight:300; font-style:italic;
+  color:var(--cream); max-width:600px;
+  margin:0 auto 48px; line-height:1.35; position:relative;
+}
+.reserva-btns {
+  display:flex; gap:16px; justify-content:center; flex-wrap:wrap;
+  position:relative;
 }
 
-.fusion-title {
-font-family: 'Cormorant Garamond', Georgia, serif;
-font-size: clamp(2.2rem, 5vw, 4rem);
-font-weight: 300;
-line-height: 1.1;
-color: #F5F1EA;
-margin-bottom: 24px;
-}
-
-.fusion-lead {
-font-family: 'Outfit', sans-serif;
-font-size: 0.95rem;
-font-weight: 200;
-line-height: 1.9;
-color: rgba(245,241,234,0.68);
-margin-bottom: 28px;
-}
-
-.fusion-signature {
-font-family: 'Cormorant Garamond', Georgia, serif;
-font-size: 1.25rem;
-font-style: italic;
-font-weight: 300;
-color: #C9A96E;
-}
-
-.fusion-content {
-display: grid;
-gap: 18px;
-}
-
-.fusion-panel {
-background: rgba(255,255,255,0.025);
-border: 1px solid rgba(255,255,255,0.055);
-padding: clamp(28px, 4vw, 42px);
-position: relative;
-overflow: hidden;
-}
-
-.fusion-panel::before {
-content: '';
-position: absolute;
-top: 0;
-left: 0;
-width: 48px;
-height: 1px;
-background: #C9A96E;
-}
-
-.fusion-panel h3 {
-font-family: 'Cormorant Garamond', Georgia, serif;
-font-size: clamp(1.4rem, 3vw, 2rem);
-font-weight: 300;
-color: #F5F1EA;
-margin-bottom: 18px;
-}
-
-.fusion-panel p {
-font-family: 'Outfit', sans-serif;
-font-size: 0.9rem;
-font-weight: 200;
-line-height: 1.9;
-color: rgba(245,241,234,0.62);
-margin-bottom: 16px;
-}
-
-.fusion-list {
-list-style: none;
-display: grid;
-gap: 14px;
-}
-
-.fusion-list li {
-font-family: 'Outfit', sans-serif;
-font-size: 0.9rem;
-font-weight: 250;
-line-height: 1.7;
-color: rgba(245,241,234,0.78);
-padding-left: 22px;
-position: relative;
-}
-
-.fusion-list li::before {
-content: '';
-position: absolute;
-left: 0;
-top: 0.72em;
-width: 6px;
-height: 6px;
-border-radius: 50%;
-background: #C9A96E;
-}
-
-.fusion-list strong {
-font-weight: 500;
-color: #F5F1EA;
-}
-
-.fusion-actions {
-display: flex;
-gap: 16px;
-flex-wrap: wrap;
-margin-top: 26px;
-}
-
-.btn-instagram {
-display: inline-flex;
-align-items: center;
-gap: 10px;
-font-family: 'Outfit', sans-serif;
-font-size: 0.78rem;
-font-weight: 400;
-letter-spacing: 0.2em;
-text-transform: uppercase;
-color: #F5F1EA;
-background: transparent;
-border: 1px solid rgba(201,169,110,0.55);
-padding: 15px 26px;
-cursor: pointer;
-text-decoration: none;
-transition: all 0.4s ease;
-}
-
-.btn-instagram:hover {
-background: rgba(201,169,110,0.12);
-border-color: #C9A96E;
-color: #C9A96E;
-transform: translateY(-2px);
-}
-
-.delivery-note {
-font-family: 'Outfit', sans-serif;
-font-size: 0.78rem;
-font-weight: 200;
-letter-spacing: 0.04em;
-color: rgba(245,241,234,0.42);
-margin-top: 18px;
-}
-
-/* ═══════════════ MENU ═══════════════ */
-.menu-section { position: relative; padding: 120px 0; background-color: #050505; }
-.menu-header { text-align: center; margin-bottom: 60px; }
-.menu-label {
-font-family: 'Outfit', sans-serif;
-font-size: 0.7rem; font-weight: 300;
-letter-spacing: 0.5em; text-transform: uppercase;
-color: #C9A96E; margin-bottom: 24px;
-}
-.menu-title {
-font-family: 'Cormorant Garamond', Georgia, serif;
-font-size: clamp(2rem, 4vw, 3rem);
-font-weight: 300; color: #F5F1EA;
-}
-.menu-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
-
-.menu-item {
-position: relative; aspect-ratio: 1; overflow: hidden;
-cursor: pointer; background-color: #111111;
-}
-.menu-item img {
-width: 100%; height: 100%; object-fit: cover;
-transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
-filter: brightness(0.7) saturate(0.9);
-}
-.menu-item:hover img { transform: scale(1.08); filter: brightness(0.85) saturate(1.1); }
-
-.menu-item-overlay {
-position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-background: linear-gradient(to top, rgba(5,5,5,0.9) 0%, transparent 60%);
-display: flex; flex-direction: column; justify-content: flex-end;
-padding: 24px; transition: all 0.5s ease;
-}
-.menu-item:hover .menu-item-overlay {
-background: linear-gradient(to top, rgba(5,5,5,0.95) 0%, rgba(193,18,31,0.1) 100%);
-}
-.menu-item-title {
-font-family: 'Cormorant Garamond', Georgia, serif;
-font-size: 1.2rem; font-weight: 400; color: #F5F1EA; margin-bottom: 4px;
-}
-.menu-item-sub {
-font-family: 'Outfit', sans-serif;
-font-size: 0.7rem; font-weight: 200;
-letter-spacing: 0.15em; text-transform: uppercase; color: #C9A96E;
-}
-
-/* ═══════════════ COMBO ═══════════════ */
-.combo-section {
-position: relative; padding: 120px 0;
-background: linear-gradient(180deg, #050505 0%, rgba(139,0,0,0.08) 50%, #050505 100%);
-}
-.combo-card {
-max-width: 700px; margin: 0 auto;
-background: linear-gradient(145deg, rgba(139,0,0,0.25) 0%, rgba(26,26,26,0.9) 100%);
-border: 1px solid rgba(201,169,110,0.2);
-padding: clamp(40px, 6vw, 72px);
-text-align: center; position: relative; overflow: hidden;
-}
-.combo-card::before, .combo-card::after {
-content: ''; position: absolute;
-width: 120px; height: 120px;
-border: 1px solid rgba(201,169,110,0.1);
-pointer-events: none;
-}
-.combo-card::before { top: 16px; left: 16px; border-right: none; border-bottom: none; }
-.combo-card::after { bottom: 16px; right: 16px; border-left: none; border-top: none; }
-
-.combo-label {
-font-family: 'Outfit', sans-serif;
-font-size: 0.7rem; font-weight: 300;
-letter-spacing: 0.5em; text-transform: uppercase;
-color: #C9A96E; margin-bottom: 20px;
-}
-.combo-title {
-font-family: 'Cormorant Garamond', Georgia, serif;
-font-size: clamp(2rem, 4vw, 2.8rem);
-font-weight: 400; color: #F5F1EA; margin-bottom: 8px;
-}
-.combo-price {
-font-family: 'Cormorant Garamond', Georgia, serif;
-font-size: clamp(2.2rem, 5vw, 3.2rem);
-font-weight: 300; color: #C9A96E; margin-bottom: 40px;
-}
-.combo-list { list-style: none; text-align: left; max-width: 420px; margin: 0 auto 40px; }
-.combo-list li {
-font-family: 'Outfit', sans-serif;
-font-size: 0.9rem; font-weight: 300;
-color: rgba(245,241,234,0.85);
-padding: 12px 0;
-border-bottom: 1px solid rgba(255,255,255,0.05);
-display: flex; align-items: center; gap: 14px;
-}
-.combo-list li::before {
-content: ''; width: 6px; height: 6px;
-background: #C9A96E; border-radius: 50%; flex-shrink: 0;
-}
-.combo-note {
-font-family: 'Outfit', sans-serif;
-font-size: 0.75rem; font-weight: 200;
-color: rgba(245,241,234,0.4);
-margin-bottom: 40px; font-style: italic;
-}
-.combo-btn {
-display: inline-flex; align-items: center; gap: 10px;
-font-family: 'Outfit', sans-serif;
-font-size: 0.8rem; font-weight: 400;
-letter-spacing: 0.25em; text-transform: uppercase;
-color: #050505;
-background: linear-gradient(135deg, #C9A96E, #D4B97A);
-border: none; padding: 18px 48px;
-cursor: pointer; text-decoration: none;
-transition: all 0.4s ease;
-}
-.combo-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(201,169,110,0.3); }
-
-/* ═══════════════ SCARCITY ═══════════════ */
-.scarcity { padding: 100px 0; text-align: center; background-color: #050505; }
-.scarcity-number {
-font-family: 'Cormorant Garamond', Georgia, serif;
-font-size: clamp(4rem, 10vw, 8rem);
-font-weight: 300; color: #C1121F; line-height: 1; margin-bottom: 12px;
-}
-.scarcity-text {
-font-family: 'Cormorant Garamond', Georgia, serif;
-font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-font-weight: 300; color: #F5F1EA; margin-bottom: 24px; letter-spacing: 0.05em;
-}
-.scarcity-sub {
-font-family: 'Outfit', sans-serif;
-font-size: 0.85rem; font-weight: 200;
-color: rgba(245,241,234,0.4); margin-bottom: 48px;
-}
-.availability-bar { max-width: 400px; margin: 0 auto; }
-.bar-track { width: 100%; height: 2px; background: rgba(255,255,255,0.08); overflow: hidden; }
-.bar-fill {
-height: 100%; width: 0%;
-background: linear-gradient(90deg, #C1121F, #C9A96E);
-transition: width 2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.bar-fill.animated { width: 72%; }
-.bar-labels { display: flex; justify-content: space-between; margin-top: 12px; }
-.bar-labels span {
-font-family: 'Outfit', sans-serif;
-font-size: 0.65rem; font-weight: 300;
-letter-spacing: 0.15em; text-transform: uppercase;
-color: rgba(245,241,234,0.35);
-}
-
-/* ═══════════════ LOCATION ═══════════════ */
-.location-section { padding: 120px 0; background: linear-gradient(180deg, #050505, #1A1A1A); }
-.location-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-.location-label {
-font-family: 'Outfit', sans-serif;
-font-size: 0.7rem; font-weight: 300;
-letter-spacing: 0.5em; text-transform: uppercase;
-color: #C9A96E; margin-bottom: 24px;
-}
-.location-name {
-font-family: 'Cormorant Garamond', Georgia, serif;
-font-size: clamp(1.8rem, 3vw, 2.4rem);
-font-weight: 400; color: #F5F1EA; margin-bottom: 16px;
-}
-.location-address {
-font-family: 'Outfit', sans-serif;
-font-size: 0.9rem; font-weight: 200; line-height: 1.8;
-color: rgba(245,241,234,0.5); margin-bottom: 8px;
-}
-.location-date {
-font-family: 'Outfit', sans-serif;
-font-size: 0.85rem; font-weight: 300;
-color: #C9A96E; margin-top: 20px; letter-spacing: 0.1em;
-}
-.location-map {
-aspect-ratio: 4/3;
-background-color: #2A2A2A;
-border: 1px solid rgba(255,255,255,0.05);
-overflow: hidden;
-}
-.location-map iframe {
-width: 100%; height: 100%; border: none;
-filter: grayscale(0.8) brightness(0.6) contrast(1.2);
-transition: filter 0.5s ease;
-}
-.location-map:hover iframe { filter: grayscale(0.4) brightness(0.7) contrast(1.1); }
-
-/* ═══════════════ CTA FINAL ═══════════════ */
-.cta-final {
-position: relative; padding: 160px 0;
-text-align: center; background-color: #050505; overflow: hidden;
-}
-.cta-final::before {
-content: ''; position: absolute;
-top: 0; left: 0; right: 0; bottom: 0;
-background: radial-gradient(ellipse at center, rgba(193,18,31,0.08) 0%, transparent 70%);
-}
-.cta-jp {
-font-family: 'Noto Serif JP', serif;
-font-size: 1rem; font-weight: 200;
-letter-spacing: 0.5em; color: rgba(201,169,110,0.3); margin-bottom: 32px;
-}
-.cta-text {
-font-family: 'Cormorant Garamond', Georgia, serif;
-font-size: clamp(1.8rem, 4vw, 3rem);
-font-weight: 300; font-style: italic; color: #F5F1EA;
-max-width: 650px; margin: 0 auto 48px; line-height: 1.4;
-}
-.cta-btn {
-display: inline-flex; align-items: center; gap: 12px;
-font-family: 'Outfit', sans-serif;
-font-size: 0.85rem; font-weight: 400;
-letter-spacing: 0.3em; text-transform: uppercase;
-color: #F5F1EA; background: #C1121F;
-border: none; padding: 22px 56px;
-cursor: pointer; text-decoration: none;
-transition: all 0.4s ease;
-}
-.cta-btn:hover {
-background: #D41425;
-transform: translateY(-2px);
-box-shadow: 0 12px 50px rgba(193,18,31,0.4);
-}
-.cta-btn svg { transition: transform 0.3s ease; }
-.cta-btn:hover svg { transform: translateX(4px); }
-
-/* ═══════════════ FOOTER ═══════════════ */
+/* ── FOOTER ── */
 .footer {
-padding: 40px 0; text-align: center;
-border-top: 1px solid rgba(255,255,255,0.04);
-background-color: #050505;
+  padding:48px 0;
+  border-top:1px solid var(--border);
+  background:var(--ink);
 }
-.footer p {
-font-family: 'Outfit', sans-serif;
-font-size: 0.7rem; font-weight: 200;
-letter-spacing: 0.15em; color: rgba(245,241,234,0.25);
+.footer-inner {
+  display:flex; align-items:center; justify-content:space-between;
+  flex-wrap:wrap; gap:20px;
 }
-
-/* ═══════════════ MOBILE ═══════════════ */
-@media (max-width: 900px) {
-.fusion-inner { grid-template-columns: 1fr; gap: 42px; }
-.fusion-intro { position: relative; top: auto; text-align: center; }
-.fusion-actions { justify-content: center; }
-.menu-grid { grid-template-columns: repeat(2, 1fr); }
+.footer-logo {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1rem; font-weight:400; letter-spacing:.2em; text-transform:uppercase;
 }
-@media (max-width: 768px) {
-.hero-logo {
-width: min(160px, 48vw);
-margin-bottom: 14px;
-filter: drop-shadow(0 0 10px rgba(201,169,110,0.10));
+.footer-logo span { color:var(--red); }
+.footer-links { display:flex; gap:24px; }
+.footer-links a {
+  font-size:.68rem; font-weight:200; letter-spacing:.2em;
+  text-transform:uppercase; color:rgba(242,237,228,.3);
+  transition:color .3s;
 }
-
-.hero-kicker {
-font-size: 0.72rem;
-letter-spacing: 0.04em;
-margin-bottom: 12px;
+.footer-links a:hover { color:var(--gold); }
+.footer-copy {
+  font-size:.65rem; font-weight:200; letter-spacing:.1em;
+  color:rgba(242,237,228,.2);
+  width:100%; text-align:center; padding-top:16px;
+  border-top:1px solid var(--border); margin-top:8px;
 }
 
-.exp-grid { grid-template-columns: repeat(2, 1fr); }
-.location-inner { grid-template-columns: 1fr; gap: 40px; }
+/* ── RESPONSIVE ── */
+@media(max-width:1000px) {
+  .nav-links { display:none; }
+  .nav-hamburger { display:flex; }
 }
-@media (max-width: 600px) {
-.hero-content { padding: 88px 24px 64px; }
-.hero-buttons { flex-direction: column; align-items: center; }
-.nav-actions { gap: 10px; }
-.nav-instagram { width: 34px; height: 34px; }
-.nav-cta { padding: 10px 16px; }
-.fusion-story { padding: 90px 0; }
-.fusion-panel { padding: 28px 22px; }
-.fusion-actions { flex-direction: column; align-items: center; }
-.btn-primary, .btn-secondary, .combo-btn, .cta-btn, .btn-instagram {
-width: 100%; max-width: 320px; justify-content: center;
+@media(max-width:860px) {
+  .sobre-inner, .delivery-inner, .horarios-inner { grid-template-columns:1fr; gap:44px; }
+  .sobre-img-wrap { max-width:480px; }
+  .cardapio-grid { grid-template-columns:repeat(2,1fr); }
+  .dif-grid { grid-template-columns:repeat(2,1fr); }
+  .galeria-grid {
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:220px 220px 220px;
+  }
+  .galeria-item:first-child { grid-row:1 / 2; grid-column:1 / 3; }
 }
-.exp-card { padding: 32px 20px; }
-.combo-card { padding: 32px 24px; }
-}
-@media (max-width: 500px) {
-.menu-grid { grid-template-columns: 1fr; }
+@media(max-width:600px) {
+  .strip-sep { display:none; }
+  .strip-inner { gap:16px; flex-direction:column; align-items:flex-start; }
+  .cardapio-grid { grid-template-columns:1fr; }
+  .dif-grid { grid-template-columns:1fr; }
+  .galeria-grid {
+    grid-template-columns:1fr;
+    grid-template-rows:auto;
+  }
+  .galeria-item { aspect-ratio:4/3; }
+  .galeria-item:first-child { grid-row:auto; grid-column:auto; aspect-ratio:4/3; }
+  .hero-ctas { flex-direction:column; align-items:center; }
+  .btn-red, .btn-outline { width:100%; max-width:300px; justify-content:center; }
+  .footer-inner { flex-direction:column; align-items:flex-start; }
+  .footer-links { flex-wrap:wrap; gap:16px; }
 }
 </style>
-
 </head>
 <body>
 
 <div class="particles" id="particles"></div>
 
-<!-- NAV -->
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" id="mobileClose" aria-label="Fechar menu">✕</button>
+  <a href="#cardapio" onclick="closeMobile()">Cardápio</a>
+  <a href="#delivery" onclick="closeMobile()">Delivery</a>
+  <a href="#sobre" onclick="closeMobile()">Sobre</a>
+  <a href="#horarios" onclick="closeMobile()">Horários</a>
+  <div class="mobile-nav-actions">
+    <a href="https://wa.me/5548988331595?text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20uma%20reserva." target="_blank" class="nav-btn" style="display:block;text-align:center;padding:14px 32px;letter-spacing:.2em;text-transform:uppercase;font-size:.75rem">Reservar Mesa</a>
+    <a href="https://www.instagram.com/kitsunebanzaitb" target="_blank" style="font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)">Instagram</a>
+  </div>
+</div>
 
+<!-- NAV -->
 <nav class="nav" id="nav">
   <div class="nav-inner">
-    <div class="nav-logo">Kitsune <span>Banzai</span></div>
-
+    <div class="nav-logo">
+      <div class="nav-logo-dot"></div>
+      Kitsune <span style="color:var(--gold);margin-left:4px">Banzai</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#cardapio">Cardápio</a></li>
+      <li><a href="#delivery">Delivery</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#horarios">Horários</a></li>
+    </ul>
     <div class="nav-actions">
-      <a href="https://www.instagram.com/kitsunebanzaitb?igsh=MXF5bG9zOXhoM3BhNA==" target="_blank" rel="noopener" class="nav-instagram" aria-label="Instagram Kitsune Banzai">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <rect x="3" y="3" width="18" height="18" rx="5"/>
-          <circle cx="12" cy="12" r="4"/>
-          <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
-        </svg>
+      <a href="https://www.instagram.com/kitsunebanzaitb" target="_blank" rel="noopener" class="nav-ig" aria-label="Instagram">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg>
       </a>
-
-      <a href="https://wa.me/5548988331595?text=Ol%C3%A1%2C%20quero%20reservar%20uma%20mesa%20para%20a%20Noite%20Fusion%20dos%20Namorados." target="_blank" rel="noopener" class="nav-cta">Reservar</a>
+      <a href="https://wa.me/5548988331595?text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20uma%20reserva." target="_blank" rel="noopener" class="nav-btn">Reservar</a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
 </nav>
 
 <!-- HERO -->
-
 <section class="hero" id="hero">
   <div class="hero-bg"></div>
-
   <div class="hero-content">
     <img src="image.png" alt="Kitsune Banzai" class="hero-logo">
-    <p class="hero-kicker">Noite Fusion dos Namorados · Canti Lê Bistrô</p>
-
-    <h1 class="hero-title">Kitsune Banzai</h1>
-    <p class="hero-subtitle">Noite Fusion dos Namorados</p>
-    <p class="hero-text">Uma experiência gastronômica exclusiva para celebrar o amor através da culinária oriental fusion.</p>
-
-    <div class="hero-buttons">
-      <a href="https://wa.me/5548988331595?text=Ol%C3%A1%2C%20quero%20reservar%20uma%20mesa%20para%20a%20Noite%20Fusion%20dos%20Namorados." target="_blank" rel="noopener" class="btn-primary">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+    <p class="hero-jp">狐 · 万歳 · 寿司</p>
+    <h1 class="hero-h1">Kitsune<br><em>Banzai</em></h1>
+    <p class="hero-sub">Gastronomia Japonesa</p>
+    <p class="hero-tagline">Sabores autênticos. Momentos inesquecíveis.</p>
+    <div class="hero-ctas">
+      <a href="https://pedeflow.com/kitsune" target="_blank" rel="noopener" class="btn-red">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+        Ver Cardápio
+      </a>
+      <a href="https://wa.me/5548988331595?text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20uma%20reserva." target="_blank" rel="noopener" class="btn-outline">
         Reservar Mesa
       </a>
-      <a href="#fusion" class="btn-secondary">Ver Experiência</a>
     </div>
-
-    <div class="hero-availability">
-      <span>Somente 25 mesas disponíveis</span>
-    </div>
+    <div class="hero-badge"><span>Delivery · Tubarão/SC</span></div>
   </div>
-
-  <div class="hero-scroll-indicator">
-    <div class="scroll-line"></div>
-  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div></div>
 </section>
 
-<!-- EXPERIENCE -->
-
-<section class="experience" id="experiencia">
-  <div class="container">
-    <div class="exp-header reveal">
-      <p class="exp-label">A Experiência</p>
-      <h2 class="exp-title">O Sushichef Carlos Flores convida você e seu amor para uma noite criada nos mínimos detalhes.</h2>
-      <p class="exp-desc">Uma experiência intimista, exclusiva e sensorial no Canti Lê Bistrô.</p>
+<!-- STRIP DE HORÁRIOS -->
+<div class="strip">
+  <div class="strip-inner">
+    <div class="strip-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+      Seg a Sáb · 11h às 14h30
     </div>
-    <div class="exp-grid">
-
-  <!-- 1. Buffet -->
-  <div class="exp-card reveal reveal-delay-1">
-    <span class="exp-icon">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="10"/><path d="M8 12s1.5-4 4-4 4 4 4 4-1.5 4-4 4-4-4-4-4"/></svg>
-    </span>
-    <h3 class="exp-card-title">Buffet Premium Fusion</h3>
-    <p class="exp-card-sub">Criações autorais exclusivas</p>
+    <div class="strip-sep"></div>
+    <div class="strip-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg>
+      Domingo · 18h30 às 23h
+    </div>
+    <div class="strip-sep"></div>
+    <div class="strip-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Tubarão · SC
+    </div>
+    <div class="strip-sep"></div>
+    <div class="strip-item">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+      Delivery disponível
+    </div>
   </div>
-
-  <!-- 2. Sobremesa — ÍCONE CORRIGIDO: bolo com velas -->
-  <div class="exp-card reveal reveal-delay-2">
-    <span class="exp-icon">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-        <rect x="2" y="16" width="20" height="5" rx="1"/>
-        <path d="M4 16v-3a2 2 0 012-2h12a2 2 0 012 2v3"/>
-        <path d="M12 4v7"/>
-        <circle cx="12" cy="3" r="1"/>
-        <path d="M8 7v4"/>
-        <circle cx="8" cy="6" r="1"/>
-        <path d="M16 7v4"/>
-        <circle cx="16" cy="6" r="1"/>
-      </svg>
-    </span>
-    <h3 class="exp-card-title">Sobremesa para Compartilhar</h3>
-    <p class="exp-card-sub">Petit Gâteau especial</p>
-  </div>
-
-  <!-- 3. Rosa -->
-  <div class="exp-card reveal reveal-delay-3">
-    <span class="exp-icon">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-    </span>
-    <h3 class="exp-card-title">Rosa Vermelha na Mesa</h3>
-    <p class="exp-card-sub">Toque de romance</p>
-  </div>
-
-  <!-- 4. Bombom — ÍCONE CORRIGIDO: presente com laço -->
-  <div class="exp-card reveal reveal-delay-1">
-    <span class="exp-icon">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-        <rect x="3" y="12" width="18" height="9" rx="1"/>
-        <rect x="5" y="8" width="14" height="4" rx="1"/>
-        <path d="M12 8v13"/>
-        <path d="M7.5 8C6.12 8 5 6.66 5 5c0-1.66 1.12-3 2.5-3C10 2 12 8 12 8H7.5z"/>
-        <path d="M16.5 8C17.88 8 19 6.66 19 5c0-1.66-1.12-3-2.5-3C14 2 12 8 12 8h4.5z"/>
-      </svg>
-    </span>
-    <h3 class="exp-card-title">Bombom Premium</h3>
-    <p class="exp-card-sub">Presente exclusivo</p>
-  </div>
-
-  <!-- 5. Ambiente -->
-  <div class="exp-card reveal reveal-delay-2">
-    <span class="exp-icon">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/></svg>
-    </span>
-    <h3 class="exp-card-title">Ambiente Exclusivo</h3>
-    <p class="exp-card-sub">Intimista e sofisticado</p>
-  </div>
-
-  <!-- 6. Experiência Romântica -->
-  <div class="exp-card reveal reveal-delay-3">
-    <span class="exp-icon">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-    </span>
-    <h3 class="exp-card-title">Experiência Romântica</h3>
-    <p class="exp-card-sub">Memórias inesquecíveis</p>
-  </div>
-
 </div>
 
+<!-- SOBRE O CHEF -->
+<section class="sobre" id="sobre">
+  <div class="container">
+    <div class="sobre-inner">
+      <div class="reveal">
+        <div class="sobre-img-wrap">
+          <img class="sobre-img" src="carlos.png" alt="Sushichef Carlos Flores">
+          <div class="sobre-img-frame"></div>
+        </div>
+      </div>
+      <div class="sobre-text reveal d2">
+        <p class="sec-label">Sobre o Chef</p>
+        <h2 class="sec-title">Quase uma década dedicada ao Japão à mesa</h2>
+        <p class="sec-desc">O Sushichef Carlos Flores traz quase 9 anos de paixão pela culinária japonesa para cada peça que cria. No Kitsune Banzai, técnicas milenares se encontram com ingredientes selecionados e uma visão contemporânea que surpreende até os paladares mais exigentes.</p>
+        <p class="sec-desc">A proposta é simples: sushi que conta uma história. Cada criação carrega a identidade da raposa — o Kitsune —, símbolo de sabedoria e transformação na cultura japonesa.</p>
+        <p class="chef-sig">Carlos Flores</p>
+        <span class="chef-years">+ 9 anos de experiência</span>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- FUSION STORY -->
+<div class="divider"></div>
 
-<section class="fusion-story" id="fusion">
+<!-- CARDÁPIO -->
+<section class="cardapio" id="cardapio">
   <div class="container">
-    <div class="fusion-inner">
-      <div class="fusion-intro reveal">
-        <p class="fusion-label">Experiência Fusion</p>
-        <h2 class="fusion-title">Uma nova experiência gastronômica está chegando.</h2>
-        <p class="fusion-lead">O Sushichef Carlos Flores, com quase 9 anos de estrada e paixão pela culinária japonesa, apresenta uma proposta inédita para surpreender os paladares mais exigentes.</p>
-        <p class="fusion-signature">Sushichef Carlos Flores</p>
+    <div class="cardapio-header reveal">
+      <p class="sec-label">Menu</p>
+      <h2 class="sec-title">Criações autorais</h2>
+    </div>
+  </div>
+  <div class="cardapio-grid">
+    <div class="prato reveal d1">
+      <img src="https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?w=600&q=80" alt="Uramaki Fusion" loading="lazy">
+      <div class="prato-overlay">
+        <p class="prato-nome">Uramakis Fusion</p>
+        <p class="prato-cat">Criações autorais</p>
+      </div>
+    </div>
+    <div class="prato reveal d2">
+      <img src="https://images.unsplash.com/photo-1583623025817-d180a2221d0a?w=600&q=80" alt="Niguiri" loading="lazy">
+      <div class="prato-overlay">
+        <p class="prato-nome">Niguiris Especiais</p>
+        <p class="prato-cat">Sabores exclusivos</p>
+      </div>
+    </div>
+    <div class="prato reveal d3">
+      <img src="https://images.unsplash.com/photo-1534256958597-7fe685cbd745?w=600&q=80" alt="Ceviche" loading="lazy">
+      <div class="prato-overlay">
+        <p class="prato-nome">Ceviche</p>
+        <p class="prato-cat">Combinações fusion</p>
+      </div>
+    </div>
+    <div class="prato reveal d4">
+      <img src="https://images.unsplash.com/photo-1615361200141-f45040f367be?w=600&q=80" alt="Sashimi" loading="lazy">
+      <div class="prato-overlay">
+        <p class="prato-nome">Sashimis Premium</p>
+        <p class="prato-cat">Seleção premium</p>
+      </div>
+    </div>
+    <div class="prato reveal d1">
+      <img src="https://images.unsplash.com/photo-1562802378-063ec186a863?w=600&q=80" alt="Hot Roll" loading="lazy">
+      <div class="prato-overlay">
+        <p class="prato-nome">Hot Rolls</p>
+        <p class="prato-cat">Crocantes e irresistíveis</p>
+      </div>
+    </div>
+    <div class="prato reveal d2">
+      <img src="https://images.unsplash.com/photo-1611143669185-af224c5e3252?w=600&q=80" alt="Temaki" loading="lazy">
+      <div class="prato-overlay">
+        <p class="prato-nome">Temakis</p>
+        <p class="prato-cat">Cones artesanais</p>
+      </div>
+    </div>
+    <div class="prato reveal d3">
+      <img src="https://images.unsplash.com/photo-1598514983318-2f64f8f4796c?w=600&q=80" alt="Combinado" loading="lazy">
+      <div class="prato-overlay">
+        <p class="prato-nome">Combinados</p>
+        <p class="prato-cat">Para compartilhar</p>
+      </div>
+    </div>
+    <div class="prato reveal d4">
+      <img src="https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=600&q=80" alt="Joy" loading="lazy">
+      <div class="prato-overlay">
+        <p class="prato-nome">Joys & Especiais</p>
+        <p class="prato-cat">Delícias da casa</p>
+      </div>
+    </div>
+  </div>
+  <div class="cardapio-cta reveal">
+    <a href="https://pedeflow.com/kitsune" target="_blank" rel="noopener" class="btn-red">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+      Cardápio Completo
+    </a>
+    <p class="cardapio-note">Cardápio completo com preços e disponibilidade de delivery</p>
+  </div>
+</section>
 
-        <div class="fusion-actions">
-          <a href="https://www.instagram.com/kitsunebanzaitb?igsh=MXF5bG9zOXhoM3BhNA==" target="_blank" rel="noopener" class="btn-instagram">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <rect x="3" y="3" width="18" height="18" rx="5"/>
-              <circle cx="12" cy="12" r="4"/>
-              <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
-            </svg>
-            Instagram
+<div class="divider"></div>
+
+<!-- DELIVERY -->
+<section class="delivery" id="delivery">
+  <div class="container">
+    <div class="delivery-inner">
+      <div class="delivery-text reveal">
+        <p class="sec-label">Peça Agora</p>
+        <h2 class="sec-title">Na sua casa com a mesma qualidade</h2>
+        <p class="sec-desc">Do nosso balcão até a sua mesa, cada peça viaja com o mesmo cuidado. Escolha sua plataforma favorita e receba o Kitsune Banzai onde você estiver.</p>
+        <div class="delivery-channels">
+          <a href="https://pedeflow.com/kitsune" target="_blank" rel="noopener" class="channel-card">
+            <div class="channel-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+            </div>
+            <div class="channel-info">
+              <h4>Cardápio Online</h4>
+              <p>Peça direto pelo Pedeflow · pedeflow.com/kitsune</p>
+            </div>
+            <div class="channel-arrow">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
           </a>
-
-          <a href="https://wa.me/5548988331595?text=Ol%C3%A1%2C%20quero%20reservar%20uma%20mesa%20para%20a%20Noite%20Fusion%20dos%20Namorados." target="_blank" rel="noopener" class="btn-instagram">Reservar</a>
+          <a href="https://wa.me/5548988331595?text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20um%20pedido." target="_blank" rel="noopener" class="channel-card">
+            <div class="channel-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+            </div>
+            <div class="channel-info">
+              <h4>WhatsApp</h4>
+              <p>Peça ou reserve pelo (48) 98833-1595</p>
+            </div>
+            <div class="channel-arrow">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+          <a href="https://www.instagram.com/kitsunebanzaitb" target="_blank" rel="noopener" class="channel-card">
+            <div class="channel-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="var(--gold)" stroke="none"/></svg>
+            </div>
+            <div class="channel-info">
+              <h4>Instagram</h4>
+              <p>Novidades, promoções e lançamentos · @kitsunebanzaitb</p>
+            </div>
+            <div class="channel-arrow">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
         </div>
       </div>
-
-      <div class="fusion-content">
-        <article class="fusion-panel reveal reveal-delay-1">
-          <h3>O que é a Experiência Fusion?</h3>
-          <p>A culinária Fusion é a arte de quebrar barreiras na cozinha. É o encontro entre as técnicas tradicionais da milenar culinária japonesa e a ousadia de ingredientes, molhos e temperos contemporâneos.</p>
-          <p>Na Experiência Fusion, o frescor dos peixes se une a toques artesanais, texturas surpreendentes e contrastes de sabores. Cada peça foi pensada para ser única.</p>
-        </article>
-
-        <article class="fusion-panel reveal reveal-delay-2">
-          <h3>Como vai funcionar o buffet?</h3>
-          <ul class="fusion-list">
-            <li><strong>Buffet quase tudo livre:</strong> você e seu par poderão se servir à vontade com uma grande variedade de sushis e opções de hots supercrocantes.</li>
-            <li><strong>Sashimis e Joys:</strong> cada casal terá direito a 10 unidades de sashimis e 10 unidades de joys.</li>
-            <li><strong>Flexibilidade no cardápio:</strong> se o casal preferir não consumir sashimis e joys, poderá trocar essa cota por 1 temaki por pessoa.</li>
-            <li><strong>Grand finale:</strong> cada casal ganhará um Petit Gâteau de sobremesa para fechar a noite.</li>
-          </ul>
-        </article>
-
-        <article class="fusion-panel reveal reveal-delay-3">
-          <h3>Experiência Fusion no delivery</h3>
-          <p>Para quem prefere curtir em casa, o delivery estará disponível no iFood com dois combos fusion exclusivos.</p>
-          <ul class="fusion-list">
-            <li><strong>Combo Fusion Premium:</strong> 60 peças, perfeito para compartilhar ou para quem tem muita fome.</li>
-            <li><strong>Combo Fusion Pocket:</strong> 30 peças, o tamanho ideal para matar a vontade com muita qualidade.</li>
-          </ul>
-          <p class="delivery-note">Garanta sua reserva para o evento ou acompanhe as novidades pelo Instagram e iFood.</p>
-        </article>
+      <div class="reveal d2">
+        <div class="delivery-visual">
+         <img class="delivery-img" 
+  src="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=700&q=80" 
+  alt="Sushi delivery">
+          <div class="delivery-badge">
+            <div class="delivery-badge-num">+60</div>
+            <div class="delivery-badge-label">opções no cardápio</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="section-divider"></div>
+<!-- GALERIA -->
+<section class="galeria">
+  <div class="galeria-grid">
+    <div class="galeria-item reveal d1">
+      <img src="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=900&q=80" alt="Sushi" loading="lazy">
+    </div>
+    <div class="galeria-item reveal d2">
+      <img src="https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?w=600&q=80" alt="Uramaki" loading="lazy">
+    </div>
+    <div class="galeria-item reveal d3">
+      <img src="https://images.unsplash.com/photo-1583623025817-d180a2221d0a?w=600&q=80" alt="Niguiri" loading="lazy">
+    </div>
+    <div class="galeria-item reveal d2">
+      <img src="https://images.unsplash.com/photo-1562802378-063ec186a863?w=600&q=80" alt="Hot roll" loading="lazy">
+    </div>
+    <div class="galeria-item reveal d3">
+      <img src="https://images.unsplash.com/photo-1615361200141-f45040f367be?w=600&q=80" alt="Sashimi" loading="lazy">
+    </div>
+  </div>
+</section>
 
-<!-- MENU -->
-
-<section class="menu-section" id="menu">
+<!-- DIFERENCIAIS -->
+<section class="diferenciais">
   <div class="container">
-    <div class="menu-header reveal">
-      <p class="menu-label">Culinária Fusion</p>
-      <h2 class="menu-title">Menu Premium</h2>
+    <div class="dif-header reveal">
+      <p class="sec-label">Por que Kitsune Banzai</p>
+      <h2 class="sec-title">A arte do sushi com alma própria</h2>
     </div>
-    <div class="menu-grid">
-      <div class="menu-item reveal reveal-delay-1">
-        <img src="https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?w=600&q=80" alt="Uramaki Fusion" loading="lazy">
-        <div class="menu-item-overlay">
-          <h3 class="menu-item-title">Uramakis Fusion</h3>
-          <p class="menu-item-sub">Criações autorais</p>
-        </div>
+    <div class="dif-grid">
+      <div class="dif-card reveal d1">
+        <span class="dif-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="10"/><path d="M8 12s1.5-4 4-4 4 4 4 4-1.5 4-4 4-4-4-4-4"/></svg>
+        </span>
+        <h3 class="dif-title">Culinária Fusion Autoral</h3>
+        <p class="dif-desc">Cada peça é uma criação única do Chef Carlos Flores — técnica japonesa encontrando ingredientes contemporâneos.</p>
       </div>
-      <div class="menu-item reveal reveal-delay-2">
-        <img src="https://images.unsplash.com/photo-1583623025817-d180a2221d0a?w=600&q=80" alt="Niguiri Especial" loading="lazy">
-        <div class="menu-item-overlay">
-          <h3 class="menu-item-title">Niguiris Especiais</h3>
-          <p class="menu-item-sub">Sabores exclusivos</p>
-        </div>
+      <div class="dif-card reveal d2">
+        <span class="dif-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z"/></svg>
+        </span>
+        <h3 class="dif-title">Ingredientes Selecionados</h3>
+        <p class="dif-desc">Peixes frescos e ingredientes escolhidos com rigor para garantir sabor e qualidade em cada pedido.</p>
       </div>
-      <div class="menu-item reveal reveal-delay-3">
-        <img src="https://images.unsplash.com/photo-1534256958597-7fe685cbd745?w=600&q=80" alt="Ceviche" loading="lazy">
-        <div class="menu-item-overlay">
-          <h3 class="menu-item-title">Ceviche</h3>
-          <p class="menu-item-sub">Combinações fusion</p>
-        </div>
+      <div class="dif-card reveal d3">
+        <span class="dif-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+        </span>
+        <h3 class="dif-title">Experiência Gastronômica</h3>
+        <p class="dif-desc">Mais que comer: vivenciar sabores que ficam na memória, seja no salão ou no conforto de casa.</p>
       </div>
-      <div class="menu-item reveal reveal-delay-4">
-        <img src="https://images.unsplash.com/photo-1615361200141-f45040f367be?w=600&q=80" alt="Sashimi Premium" loading="lazy">
-        <div class="menu-item-overlay">
-          <h3 class="menu-item-title">Sashimis Premium</h3>
-          <p class="menu-item-sub">Seleção premium</p>
-        </div>
+      <div class="dif-card reveal d1">
+        <span class="dif-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </span>
+        <h3 class="dif-title">Delivery com Qualidade</h3>
+        <p class="dif-desc">Embalagens pensadas para preservar textura, temperatura e apresentação do começo ao fim da entrega.</p>
+      </div>
+      <div class="dif-card reveal d2">
+        <span class="dif-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </span>
+        <h3 class="dif-title">Atendimento Especial</h3>
+        <p class="dif-desc">Equipe dedicada a tornar cada visita — presencial ou virtual — uma experiência memorável e acolhedora.</p>
+      </div>
+      <div class="dif-card reveal d3">
+        <span class="dif-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+        </span>
+        <h3 class="dif-title">Momentos Inesquecíveis</h3>
+        <p class="dif-desc">Do almoço rápido ao jantar especial — o Kitsune Banzai cria momentos que valem ser repetidos.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- COMBO -->
+<div class="divider"></div>
 
-<section class="combo-section" id="combo">
+<!-- HORÁRIOS E LOCAL -->
+<section class="horarios" id="horarios">
   <div class="container">
-    <div class="combo-card reveal">
-      <p class="combo-label">Exclusivo para Dois</p>
-      <h2 class="combo-title">Combo Casal</h2>
-      <p class="combo-price">R$ 210,00</p>
-      <ul class="combo-list">
-        <li>Buffet Premium Fusion Completo</li>
-        <li>Petit Gâteau com Sorvete para compartilhar</li>
-        <li>Rosa Vermelha na mesa</li>
-        <li>Bombom Premium</li>
-      </ul>
-      <p class="combo-note">Reserva confirmada mediante pagamento antecipado de 50% via PIX.</p>
-      <a href="https://wa.me/5548988331595?text=Ol%C3%A1%2C%20quero%20reservar%20uma%20mesa%20para%20a%20Noite%20Fusion%20dos%20Namorados." target="_blank" rel="noopener" class="combo-btn">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
-        Garantir Reserva
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- SCARCITY -->
-
-<section class="scarcity" id="vagas">
-  <div class="container">
-    <div class="reveal">
-      <p class="scarcity-number">25</p>
-      <h2 class="scarcity-text">mesas disponíveis</h2>
-      <p class="scarcity-sub">Após o preenchimento das vagas, entraremos em lista de espera.</p>
-      <div class="availability-bar">
-        <div class="bar-track">
-          <div class="bar-fill" id="barFill"></div>
+    <div class="horarios-inner">
+      <div class="horarios-text reveal">
+        <p class="sec-label">Horários & Local</p>
+        <h2 class="sec-title">Venha nos visitar</h2>
+        <p class="sec-desc">Estamos prontos para receber você de segunda a domingo, em horários pensados para encaixar na sua rotina.</p>
+        <div class="horario-row">
+          <span class="horario-day">Segunda a Sábado</span>
+          <span class="horario-time"><span>11h00</span> às 14h30</span>
         </div>
-        <div class="bar-labels">
-          <span>Disponível</span>
-          <span>Esgotando</span>
+        <div class="horario-row">
+          <span class="horario-day">Domingo</span>
+          <span class="horario-time"><span>18h30</span> às 23h00</span>
+        </div>
+        <div class="horarios-address">
+          <p>Rua Luiz Corrêa de Souza, 699</p>
+          <p>Dehon — Tubarão / SC</p>
+          <a href="https://wa.me/5548988331595" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+            (48) 98833-1595
+          </a>
+        </div>
+      </div>
+      <div class="reveal d2">
+        <div class="horarios-map">
+          <iframe
+            src="https://maps.google.com/maps?q=Rua+Luiz+Corr%C3%AAa+de+Souza+699+Dehon+Tubar%C3%A3o+SC&t=&z=16&ie=UTF8&iwloc=&output=embed"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="Kitsune Banzai – Tubarão/SC" allowfullscreen>
+          </iframe>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-<!-- LOCATION — MAPA CORRIGIDO -->
-
-<section class="location-section" id="local">
-  <div class="container">
-    <div class="location-inner">
-      <div class="location-info reveal">
-        <p class="location-label">Local do Evento</p>
-        <h2 class="location-name">Canti Lê Bistrô</h2>
-        <p class="location-address">Rua Luiz Corrêa de Souza, 699</p>
-        <p class="location-address">Dehon — Tubarão/SC</p>
-        <p class="location-date">Dia dos Namorados · 12 de Junho</p>
-      </div>
-      <div class="location-map reveal reveal-delay-2">
-        <iframe
-          src="https://maps.google.com/maps?q=Canti+L%C3%AA+Espa%C3%A7o+de+Eventos+Bistro+Rua+Luis+Correa+de+Souza+699+Dehon+Tubar%C3%A3o+SC+88704-250&t=&z=16&ie=UTF8&iwloc=&output=embed"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="Canti Lê Bistrô - Tubarão/SC"
-          allowfullscreen
-        ></iframe>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
 
 <!-- CTA FINAL -->
-
-<section class="cta-final">
+<section class="reserva-cta">
   <div class="container">
     <div class="reveal">
-      <p class="cta-jp">愛 · 美 · 味</p>
-      <h2 class="cta-text">Uma noite para viver memórias inesquecíveis.</h2>
-      <div class="fusion-actions" style="justify-content: center;">
-        <a href="https://www.instagram.com/kitsunebanzaitb?igsh=MXF5bG9zOXhoM3BhNA==" target="_blank" rel="noopener" class="btn-instagram">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <rect x="3" y="3" width="18" height="18" rx="5"/>
-            <circle cx="12" cy="12" r="4"/>
-            <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
-          </svg>
-          Ver Instagram
+      <p class="reserva-jp">愛 · 美 · 味</p>
+      <h2 class="reserva-title">Sua próxima experiência inesquecível começa aqui.</h2>
+      <div class="reserva-btns">
+        <a href="https://pedeflow.com/kitsune" target="_blank" rel="noopener" class="btn-outline">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+          Pedir Delivery
         </a>
-
-        <a href="https://wa.me/5548988331595?text=Ol%C3%A1%2C%20quero%20reservar%20uma%20mesa%20para%20a%20Noite%20Fusion%20dos%20Namorados." target="_blank" rel="noopener" class="cta-btn">
-          Reservar Agora
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <a href="https://wa.me/5548988331595?text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20uma%20reserva." target="_blank" rel="noopener" class="btn-red">
+          Reservar Mesa
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
     </div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer class="footer">
-  <p>Kitsune Banzai · Noite Fusion dos Namorados · Canti Lê Bistrô</p>
-  <p style="margin-top: 12px;">
-    <a href="https://beatrizcl.github.io/" target="_blank" rel="noopener" style="color: rgba(181, 181, 181, 0.421); text-decoration: none;">Desenvolvido por Beatriz Cristina · Todos os direitos reservados.</a>
-  </p>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">Kitsune <span>Banzai</span></div>
+      <div class="footer-links">
+        <a href="#cardapio">Cardápio</a>
+        <a href="#delivery">Delivery</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#horarios">Horários</a>
+        <a href="https://www.instagram.com/kitsunebanzaitb" target="_blank">Instagram</a>
+      </div>
+    </div>
+    <p class="footer-copy">
+      © 2025 Kitsune Banzai · Gastronomia Japonesa · Tubarão/SC &nbsp;·&nbsp;
+      <a href="https://beatrizcl.github.io/" target="_blank" rel="noopener" style="color:rgba(242,237,228,.2)">Desenvolvido por Beatriz Cristina</a>
+    </p>
+  </div>
 </footer>
 
 <script>
 // Partículas
-(function() {
-  var c = document.getElementById('particles');
-  var n = window.innerWidth < 768 ? 15 : 30;
-  for (var i = 0; i < n; i++) {
-    var p = document.createElement('div');
-    p.className = 'particle';
-    p.style.left = Math.random() * 100 + '%';
-    p.style.animationDuration = (12 + Math.random() * 18) + 's';
-    p.style.animationDelay = Math.random() * 15 + 's';
-    p.style.width = p.style.height = (1 + Math.random() * 2) + 'px';
+(function(){
+  var c=document.getElementById('particles');
+  var n=window.innerWidth<768?12:24;
+  for(var i=0;i<n;i++){
+    var p=document.createElement('div');
+    p.className='particle';
+    p.style.cssText='left:'+Math.random()*100+'%;'
+      +'animation-duration:'+(14+Math.random()*16)+'s;'
+      +'animation-delay:'+Math.random()*14+'s;'
+      +'width:height:'+(1+Math.random()*1.5)+'px';
     c.appendChild(p);
   }
 })();
 
 // Nav scroll
-var nav = document.getElementById('nav');
-window.addEventListener('scroll', function() {
-  nav.classList.toggle('scrolled', window.scrollY > 60);
-});
+var nav=document.getElementById('nav');
+window.addEventListener('scroll',function(){
+  nav.classList.toggle('scrolled',window.scrollY>50);
+},{ passive:true });
 
-// Scroll reveal
-var revealElements = document.querySelectorAll('.reveal');
-if ('IntersectionObserver' in window) {
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (e.isIntersecting) e.target.classList.add('visible');
-    });
-  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-  revealElements.forEach(function(el) { observer.observe(el); });
-} else {
-  revealElements.forEach(function(el) { el.classList.add('visible'); });
-}
+// Reveal
+var els=document.querySelectorAll('.reveal');
+if('IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('visible'); });
+  },{threshold:.12,rootMargin:'0px 0px -30px 0px'});
+  els.forEach(function(el){ io.observe(el); });
+} else { els.forEach(function(el){ el.classList.add('visible'); }); }
 
-// Barra de disponibilidade
-var barFill = document.getElementById('barFill');
-if (barFill && 'IntersectionObserver' in window) {
-  new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) { if (e.isIntersecting) barFill.classList.add('animated'); });
-  }, { threshold: 0.5 }).observe(barFill);
-} else if (barFill) {
-  barFill.classList.add('animated');
-}
+// Mobile nav
+var hamburger=document.getElementById('hamburger');
+var mobileNav=document.getElementById('mobileNav');
+var mobileClose=document.getElementById('mobileClose');
+hamburger.addEventListener('click',function(){ mobileNav.classList.add('open'); document.body.style.overflow='hidden'; });
+mobileClose.addEventListener('click',closeMobile);
+function closeMobile(){ mobileNav.classList.remove('open'); document.body.style.overflow=''; }
 
 // Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(function(a) {
-  a.addEventListener('click', function(e) {
-    e.preventDefault();
-    var t = document.querySelector(a.getAttribute('href'));
-    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    var t=document.querySelector(a.getAttribute('href'));
+    if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth',block:'start'}); }
   });
 });
 </script>
-
 </body>
 </html>
